@@ -1,0 +1,3141 @@
+<!DOCTYPE html>
+<html data-page-node-id="4SzfqgGgmaN3DXHNFRRCHo" lang="zh-CN">
+<head data-page-node-id="lI7epVQISyJh1uHV8goOu8">
+<script data-page-node-id="qlnfp8TKFRgYy4WN8fmPuD" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="8Dhai4QiC0tmEPZrkrsVBv" charset="UTF-8">
+<meta data-page-node-id="DUAy3KGM2dwLXT9mC2paWM" content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport">
+<meta data-page-node-id="SvZWxj7Sf1bg2eCWCYPFD2" content="#fbf7f6" name="theme-color">
+<title data-page-node-id="BK2nb5KzjtJb0z6a79NDaV" data-pnid-children="4uLTxNF96JDM4LxrYYv1kx">好孕日记 · 孕期检查记录</title>
+<style data-page-node-id="FF2MPuGY5sHr470C20Ja0v" data-pnid-children="ZCizb0eQjwYh0Vt4NPp0qS">
+/* ===================== 主题变量 ===================== */
+:root{
+  --bg:#fbf7f6;
+  --card:#ffffff;
+  --ink:#2e2a31;
+  --ink2:#857b88;
+  --ink3:#b3aab5;
+  --line:#f1e8e9;
+  --brand:#e8899b;
+  --brand-dark:#cf6c81;
+  --brand-soft:#fdeef1;
+  --mint:#5f9e88;
+  --mint-soft:#eaf6f1;
+  --amber:#a9762c;
+  --amber-soft:#fdf3e5;
+  --blue:#6b73c9;
+  --danger:#b23b34;
+  --danger-soft:#fdecea;
+  --radius:20px;
+  --shadow:0 8px 26px rgba(190,160,170,.14);
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  font-size:15px;
+}
+/* 背景柔光 */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(620px 320px at 8% -6%, #ffe3ea 0%, rgba(255,227,234,0) 62%),
+    radial-gradient(520px 280px at 102% 2%, #e6f4ee 0%, rgba(230,244,238,0) 58%);
+}
+button,input,select,textarea{font-family:inherit}
+h1,h2,h3,h4,p{margin:0}
+
+/* ===================== 布局 ===================== */
+.wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;padding-bottom:96px;min-height:100vh}
+
+.top{
+  position:sticky;top:0;z-index:20;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px 10px;
+  background:rgba(251,247,246,.82);
+  backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{
+  width:36px;height:36px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,#f3a0b1,#e8899b);
+  color:#fff;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  letter-spacing:1px;box-shadow:0 6px 14px rgba(232,137,155,.34);
+}
+.brand-txt b{display:block;font-size:15px;letter-spacing:.3px}
+.brand-txt small{display:block;font-size:11px;color:var(--ink3);letter-spacing:1.5px}
+
+main{padding:0 16px}
+
+/* ===================== 通用组件 ===================== */
+.card{
+  background:var(--card);border-radius:var(--radius);padding:16px;
+  box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.9);
+}
+.sec-title{display:flex;align-items:baseline;justify-content:space-between;margin:24px 3px 10px}
+.sec-title h3{font-size:15px;font-weight:600;letter-spacing:.3px}
+.sec-title .link{
+  background:none;border:0;color:var(--brand-dark);font-size:13px;
+  padding:2px 0;cursor:pointer;font-weight:500;
+}
+.placeholder-note{font-size:12.5px;color:var(--ink3);line-height:1.7;margin-top:8px}
+
+.badge{
+  display:inline-block;font-size:11px;font-weight:600;line-height:1.6;
+  padding:2px 8px;border-radius:999px;white-space:nowrap;
+}
+.badge.ok{background:var(--mint-soft);color:#3f7c68}
+.badge.warn{background:var(--amber-soft);color:#96682a}
+.badge.bad{background:var(--danger-soft);color:var(--danger)}
+.badge.now{background:#eef0fc;color:#4d55ab}
+.badge.mute{background:#f5f2f3;color:var(--ink2)}
+
+.btn{
+  border:0;border-radius:14px;padding:12px 18px;font-size:15px;font-weight:600;
+  cursor:pointer;transition:transform .12s, box-shadow .2s, background .2s;
+}
+.btn:active{transform:scale(.975)}
+.btn-primary{
+  background:linear-gradient(135deg,#f0a0b0,#e57f93);color:#fff;
+  box-shadow:0 8px 20px rgba(229,127,147,.32);
+}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn-danger{background:var(--danger-soft);color:var(--danger)}
+.btn-block{width:100%}
+
+.icon-btn{
+  border:0;background:transparent;color:var(--ink2);
+  width:30px;height:30px;border-radius:9px;font-size:16px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.icon-btn:hover{background:#f7f1f2}
+
+.empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;padding:30px 18px;text-align:center;color:var(--ink2);
+}
+.empty .ico{font-size:26px;opacity:.5;letter-spacing:2px}
+.empty p{font-size:13.5px;line-height:1.7}
+.empty .btn{margin-top:6px}
+
+/* ===================== 首页 Hero ===================== */
+.hero{
+  position:relative;overflow:hidden;
+  border-radius:24px;padding:20px 20px 18px;
+  background:linear-gradient(135deg,#ffdfe7 0%,#fff3e9 56%,#e9f6f0 100%);
+  box-shadow:0 10px 30px rgba(214,168,178,.22);
+}
+.hero::after{
+  content:'';position:absolute;right:-46px;top:-56px;width:170px;height:170px;
+  border-radius:50%;background:rgba(255,255,255,.46);
+}
+.hero-top{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:1}
+.pill{
+  font-size:11.5px;font-weight:600;color:#9c5a6c;
+  background:rgba(255,255,255,.72);padding:3px 10px;border-radius:999px;
+  letter-spacing:.5px;
+}
+.hero-date{font-size:12px;color:#a58d93;letter-spacing:.5px}
+.hero-week{
+  margin:10px 0 2px;display:flex;align-items:baseline;gap:4px;
+  font-size:15px;color:#7d6670;font-weight:500;position:relative;z-index:1;
+}
+.hero-week b{
+  font-size:46px;line-height:1.05;font-weight:700;color:#3e323a;
+  font-variant-numeric:tabular-nums;letter-spacing:-1.5px;
+}
+.hero-meta{font-size:13px;color:#8b7278;position:relative;z-index:1}
+.hero-bar{
+  margin-top:14px;height:8px;border-radius:999px;background:rgba(255,255,255,.78);
+  overflow:hidden;position:relative;z-index:1;
+}
+.hero-bar i{
+  display:block;height:100%;border-radius:999px;
+  background:linear-gradient(90deg,#f2a3b3,#e8899b 55%,#eaa96c);
+  transition:width .5s cubic-bezier(.2,.9,.3,1);
+}
+.hero-foot{
+  display:flex;justify-content:space-between;margin-top:7px;
+  font-size:11.5px;color:#a08a90;position:relative;z-index:1;
+}
+.hero-empty{padding:26px 20px;text-align:center}
+.hero-empty h2{font-size:17px;margin-bottom:6px;position:relative;z-index:1}
+.hero-empty p{font-size:13px;color:#8b7278;margin-bottom:16px;position:relative;z-index:1}
+.hero-empty .btn{position:relative;z-index:1}
+
+/* ===================== 快捷操作 ===================== */
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+.qbtn{
+  text-align:left;border:1px solid rgba(255,255,255,.9);border-radius:18px;
+  background:var(--card);padding:14px;cursor:pointer;box-shadow:var(--shadow);
+  transition:transform .12s;
+}
+.qbtn:active{transform:scale(.98)}
+.qbtn .qi{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:10px;font-size:15px;margin-bottom:8px;
+  background:var(--brand-soft);color:var(--brand-dark);font-weight:600;
+}
+.qbtn.alt .qi{background:var(--mint-soft);color:var(--mint)}
+.qbtn b{display:block;font-size:14px;font-weight:600}
+.qbtn small{display:block;font-size:11.5px;color:var(--ink3);margin-top:2px;line-height:1.5}
+
+/* ===================== 小数据块 ===================== */
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{
+  background:#fdfbfb;border-radius:14px;padding:12px 13px;border:1px solid var(--line);
+}
+.mini span{display:block;font-size:11.5px;color:var(--ink2);letter-spacing:.4px}
+.mini b{
+  display:block;font-size:22px;font-weight:700;margin:2px 0 1px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.5px;
+}
+.mini small{font-size:11px;color:var(--ink3)}
+.mini em{font-style:normal;font-size:11px;color:var(--mint);font-weight:600;margin-left:5px}
+
+/* ===================== 计划 / 记录行 ===================== */
+.list{display:flex;flex-direction:column}
+.list > .item{padding:12px 0;border-top:1px solid var(--line)}
+.list > .item:first-child{border-top:0;padding-top:2px}
+.list > .item:last-child{padding-bottom:2px}
+.item{display:flex;gap:11px;align-items:flex-start}
+.item-main{flex:1;min-width:0}
+.item-title{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.item-title b{font-size:14.5px;font-weight:600}
+.item-sub{font-size:12px;color:var(--ink2);margin-top:3px}
+.item-note{font-size:12.5px;color:var(--ink2);margin-top:5px;line-height:1.6}
+.item-ops{display:flex;gap:2px;flex:none}
+.item-ops .icon-btn{font-size:12.5px;width:26px;height:26px;color:var(--ink3)}
+.item-ops .icon-btn:hover{color:var(--brand-dark)}
+
+.dot{
+  width:8px;height:8px;border-radius:50%;flex:none;margin-top:7px;
+  background:var(--brand);
+}
+.dot.mint{background:var(--mint)}
+.dot.amber{background:#e0a04a}
+.dot.gray{background:#d9d2d4}
+
+/* ===================== 血值列表 ===================== */
+.lab-row{
+  display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line);
+}
+.lab-row:first-child{border-top:0;padding-top:2px}
+.lab-date{width:62px;flex:none}
+.lab-date b{display:block;font-size:14px;font-variant-numeric:tabular-nums}
+.lab-date small{display:block;font-size:10.5px;color:var(--ink3)}
+.lab-vals{flex:1;display:flex;gap:8px;min-width:0}
+.lab-vals > div{flex:1;min-width:0}
+.lab-vals span{display:block;font-size:10.5px;color:var(--ink3)}
+.lab-vals b{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+.lab-vals b i{font-style:normal;font-size:10.5px;color:var(--ink3);font-weight:400;margin-left:2px}
+
+/* ===================== 图表 ===================== */
+.chart-card{padding:14px 12px 8px}
+.chart-head{display:flex;align-items:center;justify-content:space-between;padding:0 4px 6px}
+.chart-legend{display:flex;gap:14px}
+.lg{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink2)}
+.lg i{width:9px;height:9px;border-radius:50%;display:block}
+.chart-box{position:relative;width:100%}
+.chart-box canvas{display:block;width:100%}
+.chart-tip{
+  position:absolute;background:#3a3238;color:#fff;font-size:11px;line-height:1.6;
+  padding:5px 9px;border-radius:9px;pointer-events:none;white-space:nowrap;
+  transform:translate(-50%,-100%);opacity:0;transition:opacity .12s;z-index:3;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+.chart-tip.on{opacity:1}
+.chart-empty{
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;height:180px;color:var(--ink3);font-size:13px;text-align:center;
+}
+
+/* ===================== 时间轴 ===================== */
+.tl{position:relative;padding-left:22px}
+.tl::before{
+  content:'';position:absolute;left:5px;top:6px;bottom:8px;width:1.5px;
+  background:linear-gradient(180deg,#f3dbe1,#efe8e9 60%,rgba(239,232,233,0));
+}
+.tl-item{position:relative;padding-bottom:18px}
+.tl-item:last-child{padding-bottom:2px}
+.tl-item::before{
+  content:'';position:absolute;left:-21px;top:6px;width:9px;height:9px;border-radius:50%;
+  background:#fff;border:2.5px solid var(--brand);
+}
+.tl-item.mint::before{border-color:var(--mint)}
+.tl-item.amber::before{border-color:#e0a04a}
+.tl-date{font-size:11.5px;color:var(--ink3);letter-spacing:.4px;margin-bottom:2px}
+.tl-card{
+  background:var(--card);border-radius:16px;padding:12px 14px;
+  box-shadow:0 4px 16px rgba(190,160,170,.1);border:1px solid rgba(255,255,255,.9);
+}
+.tl-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tl-head b{font-size:14.5px;font-weight:600}
+.tl-meta{font-size:11.5px;color:var(--ink2);margin-top:3px}
+.tl-items{font-size:12.5px;color:var(--ink);margin-top:7px;line-height:1.75}
+.tl-items span{color:var(--ink2)}
+.tl-note{font-size:12.5px;color:var(--ink2);margin-top:6px;padding-top:6px;border-top:1px dashed var(--line)}
+
+/* ===================== 底部导航 ===================== */
+.tabbar{
+  position:fixed;left:50%;bottom:0;transform:translateX(-50%);
+  width:100%;max-width:720px;z-index:30;
+  display:grid;grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.94);
+  backdrop-filter:saturate(180%) blur(16px);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-top:1px solid var(--line);
+  padding:7px 6px calc(7px + env(safe-area-inset-bottom));
+}
+.tabbar button{
+  border:0;background:none;cursor:pointer;color:#b6acb3;
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:5px 0;border-radius:12px;transition:color .18s;
+}
+.tabbar button span{font-size:10.5px;letter-spacing:.3px;font-weight:500}
+.tabbar button.active{color:var(--brand-dark)}
+.tabbar button.active svg{transform:translateY(-1px)}
+.tabbar svg{transition:transform .2s}
+
+/* ===================== 设置页 ===================== */
+.set-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:13px 0;border-top:1px solid var(--line);
+}
+.set-row:first-child{border-top:0;padding-top:2px}
+.set-row .k{font-size:14px}
+.set-row .v{font-size:13.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.set-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.set-actions .btn{padding:11px;font-size:13.5px}
+
+/* ===================== 弹层 ===================== */
+.mask{
+  position:fixed;inset:0;z-index:50;background:rgba(45,35,45,.36);
+  opacity:0;pointer-events:none;transition:opacity .24s;
+  backdrop-filter:blur(2px);
+}
+.mask.on{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;left:50%;bottom:0;z-index:60;
+  width:100%;max-width:720px;max-height:90vh;
+  background:#fff;border-radius:24px 24px 0 0;
+  display:flex;flex-direction:column;
+  transform:translate(-50%,110%);
+  visibility:hidden;
+  transition:transform .3s cubic-bezier(.2,.9,.28,1), visibility 0s .32s;
+  box-shadow:0 -10px 40px rgba(80,60,70,.18);
+}
+.sheet.on{
+  transform:translate(-50%,0);
+  visibility:visible;
+  transition:transform .3s cubic-bezier(.2,.9,.28,1);
+}
+.sheet-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 16px 10px;flex:none;
+}
+.sheet-head h3{font-size:16px;font-weight:600}
+.sheet-body{
+  padding:4px 18px 8px;overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1;
+}
+.sheet-body::-webkit-scrollbar{width:4px}
+.sheet-body::-webkit-scrollbar-thumb{background:#eee3e5;border-radius:9px}
+.sheet-foot{
+  padding:10px 18px calc(16px + env(safe-area-inset-bottom));flex:none;
+  border-top:1px solid var(--line);background:#fff;
+}
+
+/* ===================== 表单 ===================== */
+.field{margin-bottom:14px}
+.field > label{display:block;font-size:12.5px;color:var(--ink2);margin-bottom:6px;font-weight:500}
+.input,select,textarea{
+  width:100%;border:1px solid var(--line);background:#fdfbfb;border-radius:12px;
+  padding:11px 13px;font-size:15px;color:var(--ink);outline:none;
+  transition:border-color .15s, box-shadow .15s, background .15s;
+  -webkit-appearance:none;appearance:none;
+}
+select{
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23a89ea6' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:34px;
+}
+textarea{resize:vertical;min-height:72px;line-height:1.6}
+.input:focus,select:focus,textarea:focus{
+  border-color:#f0b3c0;background:#fff;box-shadow:0 0 0 3px rgba(232,137,155,.12);
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hint{font-size:11.5px;color:var(--ink3);margin-top:6px;line-height:1.6}
+.req::after{content:' *';color:var(--brand)}
+
+.item-rows{display:flex;flex-direction:column;gap:8px}
+.item-row{
+  display:grid;grid-template-columns:1.15fr 1fr .85fr 26px;gap:6px;align-items:center;
+}
+.item-row .input{padding:9px 10px;font-size:13.5px;border-radius:10px}
+.add-item{
+  margin-top:8px;border:1px dashed #e7d6da;background:#fffafb;color:var(--brand-dark);
+  border-radius:11px;padding:9px;font-size:13px;width:100%;cursor:pointer;font-weight:500;
+}
+.add-item:active{background:#fdf2f5}
+.seg{display:flex;gap:8px}
+.seg label{
+  flex:1;position:relative;cursor:pointer;
+}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{
+  display:block;text-align:center;font-size:13.5px;padding:10px 4px;
+  border:1px solid var(--line);border-radius:11px;background:#fdfbfb;color:var(--ink2);
+  transition:.15s;
+}
+.seg input:checked + span{
+  border-color:#f0b3c0;background:var(--brand-soft);color:var(--brand-dark);font-weight:600;
+}
+
+/* ===================== 分段切换 ===================== */
+.seg-tabs{
+  display:flex;gap:5px;background:#f5eeee;padding:4px;border-radius:14px;margin:6px 0 14px;
+}
+.seg-tabs button{
+  flex:1;border:0;background:none;padding:9px 6px;border-radius:11px;
+  font-size:13.5px;font-weight:600;color:var(--ink2);cursor:pointer;transition:.18s;
+}
+.seg-tabs button.active{background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(190,160,170,.2)}
+
+/* 三列数据块 */
+.mini-grid.three{grid-template-columns:1fr 1fr 1fr;gap:8px}
+.mini-grid.three .mini{padding:11px 10px}
+.mini-grid.three .mini b{font-size:19px}
+.mini-grid.three .mini small{font-size:10.5px}
+
+/* ===================== B超单照片 ===================== */
+.shots{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px;
+}
+.shot{
+  position:relative;aspect-ratio:1/1;border-radius:12px;overflow:hidden;
+  background:#f6f1f2;border:1px solid var(--line);
+}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot .del{
+  position:absolute;right:4px;top:4px;width:22px;height:22px;border-radius:50%;
+  border:0;background:rgba(30,24,30,.6);color:#fff;font-size:11px;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  backdrop-filter:blur(2px);
+}
+.shot-add{
+  aspect-ratio:1/1;border:1px dashed #e7d6da;border-radius:12px;background:#fffafb;
+  color:var(--brand-dark);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:3px;font-size:11.5px;cursor:pointer;
+}
+.shot-add:active{background:#fdf2f5}
+.shot-add i{font-style:normal;font-size:17px;line-height:1}
+
+.shot-actions{display:flex;gap:8px;margin-top:9px}
+.shot-actions button{
+  flex:1;border:1px solid #f0dde2;background:#fff;color:var(--brand-dark);
+  border-radius:11px;padding:10px 6px;font-size:13px;font-weight:500;cursor:pointer;
+}
+.shot-actions button:active{background:#fdf2f5}
+
+/* 列表里的缩略图条 */
+.shot-strip{display:flex;gap:7px;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.shot-strip .mini-shot{
+  width:52px;height:52px;border-radius:9px;overflow:hidden;border:1px solid var(--line);
+  background:#f6f1f2;flex:none;cursor:pointer;
+}
+.shot-strip .mini-shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot-strip .more{
+  width:52px;height:52px;border-radius:9px;background:#f8f3f4;color:var(--ink2);
+  display:flex;align-items:center;justify-content:center;font-size:12px;flex:none;
+}
+
+/* 全屏查看 */
+.lightbox{
+  position:fixed;inset:0;z-index:90;background:rgba(18,14,18,.95);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .22s;
+}
+.lightbox.on{opacity:1;pointer-events:auto}
+.lightbox img{max-width:94%;max-height:80vh;object-fit:contain;border-radius:6px}
+.lb-bar{
+  position:absolute;top:0;left:0;right:0;padding:16px 18px;
+  display:flex;align-items:center;justify-content:space-between;
+  color:#fff;font-size:13px;
+}
+.lb-bar button{
+  border:0;background:rgba(255,255,255,.16);color:#fff;width:32px;height:32px;
+  border-radius:50%;font-size:15px;line-height:1;cursor:pointer;
+}
+.lb-nav{
+  position:absolute;bottom:calc(22px + env(safe-area-inset-bottom));left:0;right:0;
+  display:flex;justify-content:center;gap:12px;
+}
+.lb-nav button{
+  border:0;background:rgba(255,255,255,.16);color:#fff;padding:9px 20px;
+  border-radius:999px;font-size:13px;cursor:pointer;
+}
+.lb-nav button:disabled{opacity:.3}
+
+/* ===================== Toast ===================== */
+.toast{
+  position:fixed;left:50%;bottom:96px;transform:translate(-50%,12px);
+  background:rgba(58,50,56,.95);color:#fff;font-size:13px;padding:9px 16px;
+  border-radius:999px;opacity:0;pointer-events:none;transition:.25s;z-index:80;
+  box-shadow:0 8px 24px rgba(0,0,0,.18);white-space:nowrap;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ===================== 响应式 ===================== */
+@media (max-width:360px){
+  .hero-week b{font-size:40px}
+  .lab-date{width:54px}
+  .quick{grid-template-columns:1fr}
+  .mini-grid{grid-template-columns:1fr}
+}
+@media (min-width:760px){
+  body{padding:0 0 40px}
+  .tabbar{border-radius:20px 20px 0 0}
+}
+</style>
+</head>
+<body data-page-node-id="0MW4BtGycEMDIaMqPRb8xA">
+
+<div data-page-node-id="FxNZwIujIrlAfAghgetahP" class="wrap">
+  <header data-page-node-id="8NH4QlFAuQp8CfDjTjhDk3" class="top">
+    <div data-page-node-id="aQHvvlG9UvjBezB0ViPVbh" class="brand">
+      <div data-page-node-id="0UwEVv6wOtiRTQBjEUe08r" class="logo"><!--pnid:YIkO6J6aUCHVfGcvtqZOTK-->好孕</div>
+      <div data-page-node-id="bHVpoi7eDnfmEJPJnD6dM5" class="brand-txt">
+        <b data-page-node-id="x5ES8ICxQBCRP6pnyzMPpY"><!--pnid:1G93ydUctVc8htlghCLhJJ-->好孕日记</b>
+        <small data-page-node-id="eCZeXUyWtuQoNQk4p68ZXE"><!--pnid:6C0tBRp9dcF2EDh9GQ2SNK-->孕期检查记录</small>
+      </div>
+    </div>
+  </header>
+
+  <main data-page-node-id="J3V5ZSxCP7K8fRgEl1G1NR" id="main"></main>
+
+  <nav data-page-node-id="UpFbQkZ2DdIXl98lgcd8BW" class="tabbar" id="tabbar">
+    <button data-page-node-id="BeiQOnC3EqAEHfEmZ8DWJA" class="active" data-act="tab" data-tab="home">
+      <svg data-page-node-id="kT5QvYwovxLZrJd8W4mA1K" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><path data-page-node-id="IxZQvl3468Nc84BvXFJgv7" d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"/></svg>
+      <span data-page-node-id="sSuznOpVKDunxiid6GaiIr"><!--pnid:HtwkYh0n8AsY1LViBpSVGt-->概览</span>
+    </button>
+    <button data-page-node-id="U3bVVQCqFSTxgAdtQY9rCg" data-act="tab" data-tab="metrics">
+      <svg data-page-node-id="Yv58yD4KM7DX8QC63D97J0" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><path data-page-node-id="NFdK6FhNIEQkcLkC0CHcmO" d="M3 17.5l5-6 4 3 6-8"/><circle data-page-node-id="N4joenn70EtwiPLx9Ik3Wk" cx="3" cy="17.5" r="1.6"/><circle data-page-node-id="T6QIrjgnRNgad66oPm17bQ" cx="18" cy="6.5" r="1.6"/></svg>
+      <span data-page-node-id="zucTBrQGkGd7PasB2gfroG"><!--pnid:D08Vh7pkFETiagbocSUCt5-->指标</span>
+    </button>
+    <button data-page-node-id="NDN0XdFnc9y7Hy1hYAHSoC" data-act="tab" data-tab="exams">
+      <svg data-page-node-id="xmcPikvuewvm8if5XLUugv" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><rect data-page-node-id="4lUTn6j1QOmgbcSUpnykrv" height="16" rx="2.6" width="18" x="3" y="5"/><path data-page-node-id="1Nvk4BPpEvyBHqAq4hzNHI" d="M8 3v4M16 3v4M3 10.5h18"/></svg>
+      <span data-page-node-id="9eDqbAxytyM69miabWzCDE"><!--pnid:8yr3LvLTI1jMsDLxXtGKQr-->产检</span>
+    </button>
+    <button data-page-node-id="vDFyOrIINVTn4Wl77JnOnx" data-act="tab" data-tab="timeline">
+      <svg data-page-node-id="ajefd2k5lmuVGNOzbrztLB" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><circle data-page-node-id="SJjuW8UqXonjLsW0Mg9RaU" cx="12" cy="12" r="8.6"/><path data-page-node-id="abWDaGdz9dPmqJdyHZ1HOK" d="M12 7.4V12l3 1.9"/></svg>
+      <span data-page-node-id="kypQ97LnKDWQgIpXiwD5Af"><!--pnid:Hno11NTDQhoqRZEvj3fOd3-->时间线</span>
+    </button>
+    <button data-page-node-id="kdguAvP7vFuIcZJJytgcNn" data-act="tab" data-tab="settings">
+      <svg data-page-node-id="axoXJhT99lq3BNSjs0K7U4" fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewBox="0 0 24 24" width="22"><path data-page-node-id="X8dRyKpHS2IVUsToJgLuge" d="M4 7h9M17.5 7H20M4 17h3M11.5 17H20"/><circle data-page-node-id="V0KQo4C7qo88S59CZM7ehn" cx="15.2" cy="7" r="2.3"/><circle data-page-node-id="tsFsOO5cwoKKgwB5UKoz1f" cx="9.2" cy="17" r="2.3"/></svg>
+      <span data-page-node-id="LsQRGCDEv5j5JBCfKP7hy5"><!--pnid:IqF8RLjlPKz5tF2BAmBdPg-->设置</span>
+    </button>
+  </nav>
+</div>
+
+<div data-page-node-id="eXJrf726Qs8vpTUnXs3l5h" class="mask" data-act="close-sheet" id="mask"></div>
+<div data-page-node-id="zzi8ywyS6AtpOodreQ8hGL" class="sheet" id="sheet">
+  <div data-page-node-id="xIu7cjOMAF5gRq7tZGlvDB" class="sheet-head">
+    <h3 data-page-node-id="kwRsaRqD5hDrv3Vts1Vm70" id="sheetTitle"><!--pnid:IiC2nqqfvcyCE1j9Bc5ECH-->标题</h3>
+    <button data-page-node-id="N6KDZwZ5fJ3Z8xFdKnH7Fg" aria-label="关闭" class="icon-btn" data-act="close-sheet"><!--pnid:lCqzaIIbX0u0gSAAvYkF3k-->✕</button>
+  </div>
+  <div data-page-node-id="GME4wnt761nG9vuKMmuq69" class="sheet-body" id="sheetBody"></div>
+  <div data-page-node-id="UR7nTru2hvHkQXY7bkytAe" class="sheet-foot" id="sheetFoot"></div>
+</div>
+
+<div data-page-node-id="IOrinqXqPXT5b9MnbR5wuc" class="toast" id="toast"></div>
+<input data-page-node-id="biOgqIREU7kXxhkN6WCxWn" accept=".json,application/json" hidden id="fileInput" type="file">
+<!--pnid:OCyVlFyELFLFz9vVuS8a60--><!-- 相册/文件选择 -->
+<input data-page-node-id="RitdLV90Q7vEi55XHZ1BNx" accept="image/*" hidden id="shotInput" multiple type="file">
+<!--pnid:VQYhma4jCeiLZJIoXKVJTv--><!-- 直接调起相机 -->
+<input data-page-node-id="fM0rspXqSd3sQRRyuBQUqT" accept="image/*" capture="environment" hidden id="camInput" type="file">
+
+<div data-page-node-id="NsYczOey4FxRuRLIauxXBO" class="lightbox" id="lightbox">
+  <div data-page-node-id="NlX1C7MYRqBVg0hnOkfOAv" class="lb-bar">
+    <span data-page-node-id="z6YkX6FzKH98GFY7d6Tv4E" id="lbCount"><!--pnid:1JcbJVYHT1ldOw5OeOSHpC-->1 / 1</span>
+    <button data-page-node-id="PBO2PJ2V95PeVqp3zPtdfn" aria-label="关闭" data-act="close-lightbox"><!--pnid:NpfRe9O5GnUjw7Jx2bvLUL-->✕</button>
+  </div>
+  <img data-page-node-id="X4QF7H86az6OXR9NRpAGzY" alt="检查报告" id="lbImg">
+  <div data-page-node-id="wwF7eB1sbd7vdGLFw26cTE" class="lb-nav">
+    <button data-page-node-id="vecRce9vdjr017q6avLtjW" data-act="lb-prev" id="lbPrev"><!--pnid:PvNCX6ixiGliQKi1SMVuyz-->上一张</button>
+    <button data-page-node-id="Z9J142iVyQx8tHTc3ZZ6Uf" data-act="lb-next" id="lbNext"><!--pnid:2M7nfKECH9T4TSfMkdi4E2-->下一张</button>
+  </div>
+</div>
+
+<script data-page-node-id="32zPsLigMzaHckwSySZESh" data-pnid-children="UmOYCOrjtAnaSx87mT6YJq">
+(function(){
+'use strict';
+
+/* ==================================================================
+   1. 基础工具
+   ================================================================== */
+var $  = function(s, r){ return (r || document).querySelector(s); };
+var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+var DAY = 86400000;
+
+/** HTML 转义，防止用户输入破坏结构 */
+function esc(v){
+  return String(v == null ? '' : v).replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+/** 生成短 ID */
+function uid(){
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+
+/** 'YYYY-MM-DD' -> UTC 毫秒数（避开时区问题） */
+function d2n(s){
+  if(!s) return NaN;
+  var p = String(s).split('-').map(Number);
+  if(p.length !== 3 || isNaN(p[0])) return NaN;
+  return Date.UTC(p[0], p[1] - 1, p[2]);
+}
+
+/** UTC 毫秒数 -> 'YYYY-MM-DD' */
+function n2d(n){
+  return new Date(n).toISOString().slice(0, 10);
+}
+
+/** 今天的 'YYYY-MM-DD'（本地时间） */
+function todayStr(){
+  var t = new Date();
+  return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
+}
+
+/** '2026-03-05' -> '3月5日' */
+function fmtCN(s){
+  if(!s) return '';
+  var p = s.split('-');
+  return (+p[1]) + '月' + (+p[2]) + '日';
+}
+
+/** '2026-03-05' -> '03-05' */
+function fmtShort(s){
+  if(!s) return '';
+  var p = s.split('-');
+  return p[1] + '-' + p[2];
+}
+
+/** 取数字，非法返回 0 */
+function num(v){
+  var n = parseFloat(v);
+  return isNaN(n) ? 0 : n;
+}
+
+/** 数字展示：过万转「万」，保留一位小数 */
+function fmtNum(n){
+  if(!n) return '—';
+  if(n >= 10000){
+    var v = (n / 10000).toFixed(1).replace(/\.0$/, '');
+    return v + '万';
+  }
+  return Number(n).toLocaleString('zh-CN');
+}
+
+function clamp(v, a, b){ return Math.min(b, Math.max(a, v)); }
+
+/** 轻提示 */
+function toast(msg){
+  var t = $('#toast');
+  if(!t) return;
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function(){ t.classList.remove('on'); }, 1900);
+}
+
+/* ==================================================================
+   2. 数据层
+   ================================================================== */
+var STORE_KEY = 'haoyun_journal_v1';
+
+var state = loadState();
+
+function loadState(){
+  var base = {
+    profile: { name:'', lmp:'', edd:'', height:'', preWeight:'' },
+    labs: [],
+    exams: [],
+    weights: []
+  };
+  try{
+    var raw = localStorage.getItem(STORE_KEY);
+    if(raw){
+      var s = JSON.parse(raw);
+      if(s && typeof s === 'object'){
+        base.profile = Object.assign(base.profile, s.profile || {});
+        base.labs  = Array.isArray(s.labs)  ? s.labs  : [];
+        base.exams = Array.isArray(s.exams) ? s.exams : [];
+        /* 兼容早期没有体重记录的版本 */
+        base.weights = Array.isArray(s.weights) ? s.weights : [];
+      }
+    }
+  }catch(e){ /* 读取失败时用空数据 */ }
+  return base;
+}
+
+function saveState(){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify(state));
+    return true;
+  }catch(e){
+    /* 常见于报告照片过多导致超过浏览器存储上限（约 5MB） */
+    toast('存储空间不足，请删除部分报告照片后再保存');
+    return false;
+  }
+}
+
+/* ==================================================================
+   3. 孕期计算
+   ================================================================== */
+/** 根据日期算孕周；未设置末次月经时返回 null */
+function gestAge(dateStr){
+  var lmp = state.profile.lmp;
+  var d = dateStr || todayStr();
+  if(!lmp || !d) return null;
+  var days = Math.round((d2n(d) - d2n(lmp)) / DAY);
+  if(isNaN(days) || days < 0) return null;
+  return { days: days, w: Math.floor(days / 7), d: days % 7 };
+}
+
+/** 孕周文本：孕 12 周 +3 天 */
+function fmtWeek(g){
+  if(!g) return '—';
+  return '孕 ' + g.w + ' 周' + (g.d ? ' +' + g.d + ' 天' : '');
+}
+
+/** 短孕周：12w+3 */
+function fmtWeekShort(g){
+  if(!g) return '—';
+  return g.w + 'w' + (g.d ? '+' + g.d : '');
+}
+
+/** 预产期：优先取档案里的 edd，否则 LMP + 280 天 */
+function getEdd(){
+  var p = state.profile;
+  if(p.edd) return p.edd;
+  if(p.lmp) return n2d(d2n(p.lmp) + 280 * DAY);
+  return '';
+}
+
+/** 孕期阶段 */
+function stageOf(days){
+  if(days < 98)  return { name:'孕早期', tip:'补充叶酸，避免剧烈运动，注意休息' };
+  if(days < 196) return { name:'孕中期', tip:'均衡营养、适度散步，按时产检' };
+  return { name:'孕晚期', tip:'每天数胎动，留意宫缩、见红与破水' };
+}
+
+/* ---------------- 体重与增重参考 ---------------- */
+/** 孕前 BMI；缺身高或体重返回 0 */
+function bmiOf(){
+  var h = num(state.profile.height) / 100;
+  var w = num(state.profile.preWeight);
+  if(!h || !w) return 0;
+  return w / (h * h);
+}
+
+/** BMI 分类（IOM 孕期增重建议分组：偏瘦 / 正常 / 超重 / 肥胖） */
+function bmiCat(bmi){
+  if(bmi < 18.5) return { k:'low',    t:'偏瘦', lo:12.5, hi:18   };
+  if(bmi < 25)   return { k:'normal', t:'正常', lo:11.5, hi:16   };
+  if(bmi < 30)   return { k:'over',   t:'超重', lo:7,    hi:11.5 };
+  return           { k:'obese',  t:'肥胖', lo:5,    hi:9    };
+}
+
+/**
+ * 给定孕周（周，可带小数），返回推荐的「累计增重」区间 [lo, hi]（kg）
+ * 采用 IOM 2009 思路：孕早期增重少，之后按周匀速增长，
+ * 到 40 周时正好落在该 BMI 分组的总增重建议范围内。
+ */
+function recommendGain(week){
+  var bmi = bmiOf();
+  if(!bmi) return null;
+
+  var cat = bmiCat(bmi);
+  var earlyLo = cat.k === 'low' ? 1.5 : 1.0;
+  var earlyHi = cat.k === 'low' ? 2.5 : (cat.k === 'normal' ? 2.0 : 1.5);
+  var rateLo  = (cat.lo - earlyLo) / 27;
+  var rateHi  = (cat.hi - earlyHi) / 27;
+
+  var w = clamp(week, 0, 42);
+  if(w <= 13){
+    return { lo: earlyLo * w / 13, hi: earlyHi * w / 13 };
+  }
+  return { lo: earlyLo + rateLo * (w - 13), hi: earlyHi + rateHi * (w - 13) };
+}
+
+/** 体重记录倒序 */
+function sortedWeights(){
+  return state.weights.slice().sort(function(a, b){
+    var c = String(b.date).localeCompare(String(a.date));
+    if(c !== 0) return c;
+    return (b.created || 0) - (a.created || 0);
+  });
+}
+
+/** 体重概况：最新体重、累计增重、BMI、是否在推荐区间 */
+function weightStats(){
+  var ws = sortedWeights();
+  if(!ws.length) return null;
+
+  var latest = ws[0];
+  var pre = num(state.profile.preWeight);
+  var bmi = bmiOf();
+  var gain = pre ? num(latest.kg) - pre : null;
+  var g = gestAge(latest.date);
+  var rec = g ? recommendGain(g.w + g.d / 7) : null;
+
+  var flag = '';
+  if(rec && gain !== null){
+    if(gain > rec.hi + 0.8) flag = 'high';
+    else if(gain < rec.lo - 0.8) flag = 'low';
+    else flag = 'ok';
+  }
+
+  return { latest: latest, pre: pre, bmi: bmi, gain: gain, rec: rec, flag: flag, age: g };
+}
+
+/* ==================================================================
+   4. 检查项目模板
+   ================================================================== */
+var EXAM_TYPES = [
+  { key:'us1', label:'早孕B超', weeks:'6–8 周', items:[
+    { n:'孕囊大小', u:'mm' }, { n:'胎芽长度', u:'mm' },
+    { n:'胎心搏动', u:'' }, { n:'孕囊位置', u:'' }
+  ]},
+  { key:'nt', label:'NT 检查', weeks:'11–13+6 周', items:[
+    { n:'NT 厚度', u:'mm' }, { n:'头臀长 CRL', u:'mm' },
+    { n:'鼻骨', u:'' }, { n:'静脉导管血流', u:'' }
+  ]},
+  { key:'tang', label:'唐氏筛查', weeks:'15–20 周', items:[
+    { n:'21-三体风险', u:'' }, { n:'18-三体风险', u:'' }, { n:'开放性神经管缺陷', u:'' }
+  ]},
+  { key:'nipt', label:'无创 DNA（NIPT）', weeks:'12–22 周', items:[
+    { n:'21-三体', u:'' }, { n:'18-三体', u:'' }, { n:'13-三体', u:'' }, { n:'性染色体', u:'' }
+  ]},
+  { key:'amnio', label:'羊水穿刺', weeks:'16–22 周', items:[
+    { n:'染色体核型', u:'' }, { n:'基因芯片', u:'' }
+  ]},
+  { key:'struct', label:'大排畸B超', weeks:'20–24 周', items:[
+    { n:'双顶径 BPD', u:'mm' }, { n:'股骨长 FL', u:'mm' }, { n:'腹围 AC', u:'mm' },
+    { n:'羊水指数 AFI', u:'cm' }, { n:'胎盘位置', u:'' }, { n:'胎盘分级', u:'' }
+  ]},
+  { key:'ogtt', label:'糖耐量试验 OGTT', weeks:'24–28 周', items:[
+    { n:'空腹血糖', u:'mmol/L' }, { n:'1 小时血糖', u:'mmol/L' }, { n:'2 小时血糖', u:'mmol/L' }
+  ]},
+  { key:'routine', label:'血尿常规', weeks:'每次产检', items:[
+    { n:'血红蛋白', u:'g/L' }, { n:'白细胞', u:'×10⁹/L' }, { n:'血小板', u:'×10⁹/L' },
+    { n:'尿蛋白', u:'' }, { n:'尿糖', u:'' }
+  ]},
+  { key:'thyroid', label:'甲功 / 肝肾功能', weeks:'孕早期', items:[
+    { n:'TSH', u:'mIU/L' }, { n:'FT4', u:'pmol/L' }, { n:'ALT', u:'U/L' }, { n:'肌酐', u:'μmol/L' }
+  ]},
+  { key:'nst', label:'胎心监护 NST', weeks:'32 周起', items:[
+    { n:'胎心基线', u:'次/分' }, { n:'变异', u:'' }, { n:'加速', u:'' }, { n:'减速', u:'' }
+  ]},
+  { key:'us2', label:'孕晚期B超', weeks:'30–40 周', items:[
+    { n:'双顶径 BPD', u:'mm' }, { n:'股骨长 FL', u:'mm' }, { n:'腹围 AC', u:'mm' },
+    { n:'估计体重 EFW', u:'g' }, { n:'羊水指数 AFI', u:'cm' }, { n:'脐动脉 S/D', u:'' }
+  ]},
+  { key:'gbs', label:'GBS 筛查', weeks:'35–37 周', items:[
+    { n:'B 族链球菌', u:'' }
+  ]},
+  { key:'other', label:'其他检查', weeks:'自定', items:[] }
+];
+
+/** 产检计划（天数区间，按 LMP 起算） */
+var PLAN = [
+  { key:'us1',     from:42,  to:63  },
+  { key:'nt',      from:77,  to:97  },
+  { key:'tang',    from:105, to:140 },
+  { key:'struct',  from:140, to:168 },
+  { key:'ogtt',    from:168, to:196 },
+  { key:'nst',     from:224, to:280 },
+  { key:'gbs',     from:245, to:259 }
+];
+
+function typeLabel(key){
+  for(var i = 0; i < EXAM_TYPES.length; i++){
+    if(EXAM_TYPES[i].key === key) return EXAM_TYPES[i].label;
+  }
+  return '检查';
+}
+function typeWeeks(key){
+  for(var i = 0; i < EXAM_TYPES.length; i++){
+    if(EXAM_TYPES[i].key === key) return EXAM_TYPES[i].weeks;
+  }
+  return '';
+}
+
+/* ==================================================================
+   5. 视图渲染
+   ================================================================== */
+var currentTab = 'home';
+var metricPane = 'lab';   // 指标页内部分段：lab（血值） / weight（体重）
+
+function render(){
+  var main = $('#main');
+  var html = '';
+  if(currentTab === 'home')        html = viewHome();
+  else if(currentTab === 'metrics')html = viewMetrics();
+  else if(currentTab === 'exams')  html = viewExams();
+  else if(currentTab === 'timeline') html = viewTimeline();
+  else                              html = viewSettings();
+
+  main.innerHTML = html;
+  updateTabs();
+
+  if(currentTab === 'metrics'){
+    requestAnimationFrame(function(){
+      if(metricPane === 'weight') drawWeightChart();
+      else drawLabChart();
+    });
+  }
+}
+
+function updateTabs(){
+  $$('#tabbar button').forEach(function(b){
+    b.classList.toggle('active', b.dataset.tab === currentTab);
+  });
+}
+
+/* ---------------- 首页 ---------------- */
+function viewHome(){
+  var p = state.profile;
+  var today = todayStr();
+  var g = gestAge(today);
+  var edd = getEdd();
+  var html = '';
+
+  /* --- Hero --- */
+  if(!g){
+    html += '<div class="hero hero-empty">'
+         +  '<h2>先记录你的孕期信息</h2>'
+         +  '<p>填写末次月经第一天，自动帮你算孕周、预产期和产检时间</p>'
+         +  '<button class="btn btn-primary" data-act="edit-profile">设置孕期信息</button>'
+         +  '</div>';
+  }else{
+    var pct = clamp(g.days / 280 * 100, 0, 100);
+    var leftDays = edd ? Math.round((d2n(edd) - d2n(today)) / DAY) : null;
+    var st = stageOf(g.days);
+    var leftTxt = leftDays === null ? '预产期未设置'
+                 : leftDays > 0 ? ('距预产期还有 ' + leftDays + ' 天')
+                 : leftDays === 0 ? '今天就是预产期'
+                 : ('已超过预产期 ' + (-leftDays) + ' 天');
+
+    html += '<div class="hero">'
+         +   '<div class="hero-top">'
+         +     '<span class="pill">' + st.name + '</span>'
+         +     '<span class="hero-date">' + fmtCN(today) + '</span>'
+         +   '</div>'
+         +   '<div class="hero-week"><b>' + g.w + '</b> 周 <b>' + g.d + '</b> 天</div>'
+         +   '<div class="hero-meta">' + leftTxt + (edd ? ' · 预产期 ' + edd : '') + '</div>'
+         +   '<div class="hero-bar"><i style="width:' + pct.toFixed(1) + '%"></i></div>'
+         +   '<div class="hero-foot"><span>已孕 ' + g.days + ' 天</span><span>' + Math.round(pct) + '%</span></div>'
+         + '</div>';
+  }
+
+  /* --- 快捷操作 --- */
+  html += '<div class="quick">'
+       +   '<button class="qbtn" data-act="add-lab">'
+       +     '<span class="qi">＋</span><b>记录 HCG / 孕酮</b><small>输入抽血结果，自动画趋势</small>'
+       +   '</button>'
+       +   '<button class="qbtn alt" data-act="add-exam">'
+       +     '<span class="qi">＋</span><b>新增产检记录</b><small>B超、NT、糖耐等各类检查</small>'
+       +   '</button>'
+       + '</div>';
+
+  /* --- 体重 --- */
+  var wst = weightStats();
+  html += '<div class="sec-title"><h3>体重</h3>'
+       +  (wst ? '<button class="link" data-act="goto-weight">查看曲线 ›</button>'
+              : '<button class="link" data-act="add-weight">＋ 记录</button>')
+       + '</div>';
+
+  if(!wst){
+    html += '<div class="card"><div class="item">'
+         +   '<span class="dot amber"></span>'
+         +   '<div class="item-main">'
+         +     '<div class="item-title"><b>还没有体重记录</b></div>'
+         +     '<div class="item-sub">每周称一次，看看增长是否在合理区间</div>'
+         +   '</div>'
+         +   '<div class="item-ops"><button class="icon-btn" data-act="add-weight" title="记录体重">＋</button></div>'
+         + '</div></div>';
+  }else{
+    html += '<div class="card">'
+         +  '<div class="mini-grid three">'
+         +    '<div class="mini"><span>当前体重</span><b>' + num(wst.latest.kg) + '</b>'
+         +      '<small>kg · ' + fmtCN(wst.latest.date) + '</small></div>'
+         +    '<div class="mini"><span>累计增重</span><b>'
+         +      (wst.gain === null ? '—' : (wst.gain >= 0 ? '+' : '') + wst.gain.toFixed(1)) + '</b>'
+         +      '<small>' + (wst.pre ? '孕前 ' + wst.pre + ' kg' : '未填孕前体重') + '</small></div>'
+         +    '<div class="mini"><span>孕前 BMI</span><b>' + (wst.bmi ? wst.bmi.toFixed(1) : '—') + '</b>'
+         +      '<small>' + (wst.bmi ? bmiCat(wst.bmi).t : '待补身高') + '</small></div>'
+         +  '</div>';
+    if(wst.rec && wst.gain !== null){
+      var tipTxt = wst.flag === 'high' ? '本周增重高于推荐上限，注意控制主食与甜食'
+                 : wst.flag === 'low'  ? '本周增重低于推荐下限，注意营养摄入'
+                 : '本周增重在推荐范围内';
+      html += '<div style="display:flex;align-items:center;gap:8px;margin-top:11px">'
+           +   '<span class="badge ' + (wst.flag === 'ok' ? 'ok' : 'warn') + '">'
+           +     (wst.flag === 'ok' ? '正常' : '注意') + '</span>'
+           +   '<span style="font-size:12px;color:var(--ink2)">' + tipTxt
+           +     '（推荐 ' + wst.rec.lo.toFixed(1) + '–' + wst.rec.hi.toFixed(1) + ' kg）</span>'
+           + '</div>';
+    }
+    html += '</div>';
+  }
+
+  /* --- 最近血值 --- */
+  var labs = sortedLabs();
+  html += '<div class="sec-title"><h3>最近血值</h3>'
+       +  '<button class="link" data-act="pane" data-pane="lab">查看趋势 ›</button></div>';
+
+  if(!labs.length){
+    html += '<div class="card"><div class="empty">'
+         +  '<div class="ico">◌</div>'
+         +  '<p>还没有血值记录<br>记录 HCG 和孕酮，看看翻倍情况</p>'
+         +  '<button class="btn btn-ghost" data-act="add-lab">记录第一次</button>'
+         + '</div></div>';
+  }else{
+    var l0 = labs[0], l1 = labs[1];
+    html += '<div class="card"><div class="mini-grid">';
+    html += '<div class="mini"><span>HCG（mIU/mL）</span><b>' + fmtNum(num(l0.hcg)) + '</b>'
+         +  '<small>' + fmtCN(l0.date) + ' · ' + fmtWeekShort(gestAge(l0.date)) + '</small>';
+    if(l1 && num(l1.hcg) && num(l0.hcg)){
+      var times = num(l0.hcg) / num(l1.hcg);
+      html += '<small><em style="white-space:nowrap">较上次 ×' + times.toFixed(1) + '</em></small>';
+    }
+    html += '</div>';
+    html += '<div class="mini"><span>孕酮（ng/mL）</span><b>' + (num(l0.prog) ? num(l0.prog) : '—') + '</b>'
+         +  '<small>' + fmtCN(l0.date) + ' · ' + fmtWeekShort(gestAge(l0.date)) + '</small>';
+    if(l1 && num(l1.prog) && num(l0.prog)){
+      var diff = num(l0.prog) - num(l1.prog);
+      html += '<small><em style="white-space:nowrap">较上次 ' + (diff >= 0 ? '+' : '') + diff.toFixed(1) + '</em></small>';
+    }
+    html += '</div>';
+    html += '</div></div>';
+  }
+
+  /* --- 下一项产检 --- */
+  var next = nextPlanItem();
+  if(next){
+    html += '<div class="sec-title"><h3>下一项产检</h3>'
+         +  '<button class="link" data-act="tab" data-tab="exams">全部计划 ›</button></div>'
+         +  '<div class="card"><div class="item">'
+         +    '<span class="dot amber"></span>'
+         +    '<div class="item-main">'
+         +      '<div class="item-title"><b>' + esc(typeLabel(next.key)) + '</b>'
+         +        '<span class="badge ' + next.cls + '">' + next.status + '</span></div>'
+         +      '<div class="item-sub">建议 ' + esc(typeWeeks(next.key)) + ' · ' + next.when + '</div>'
+         +    '</div>'
+         +    '<div class="item-ops"><button class="icon-btn" data-act="add-exam-type" data-type="' + next.key + '" title="记录这项">＋</button></div>'
+         +  '</div></div>';
+  }
+
+  /* --- 最近记录 --- */
+  var evs = allEvents().slice(0, 3);
+  html += '<div class="sec-title"><h3>最近记录</h3>'
+       +  '<button class="link" data-act="tab" data-tab="timeline">时间线 ›</button></div>';
+
+  if(!evs.length){
+    html += '<div class="card"><div class="empty"><div class="ico">◌</div>'
+         +  '<p>还没有任何记录</p>'
+         +  '<button class="btn btn-ghost" data-act="load-demo">载入示例数据看看</button>'
+         + '</div></div>';
+  }else{
+    html += '<div class="card"><div class="list">';
+    evs.forEach(function(ev){
+      html += '<div class="item">'
+           +   '<span class="dot ' + (ev.kind === 'lab' ? 'mint' : ev.kind === 'weight' ? 'amber' : '') + '"></span>'
+           +   '<div class="item-main">'
+           +     '<div class="item-title"><b>' + esc(ev.title) + '</b></div>'
+           +     '<div class="item-sub">' + fmtCN(ev.date) + ' · ' + fmtWeekShort(gestAge(ev.date)) + ' · ' + esc(ev.summary) + '</div>'
+           +   '</div>'
+           + '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  return html;
+}
+
+/* ---------------- 血值页 ---------------- */
+function viewLabPane(){
+  var labs = sortedLabs();
+  var html = '';
+
+  html += '<div class="sec-title"><h3>HCG / 孕酮</h3>'
+       +  '<button class="link" data-act="add-lab">＋ 记录</button></div>';
+
+  /* 最新两个指标 */
+  if(labs.length){
+    var l0 = labs[0];
+    html += '<div class="card" style="margin-bottom:12px"><div class="mini-grid">'
+         +    '<div class="mini"><span>最新 HCG</span><b>' + fmtNum(num(l0.hcg)) + '</b>'
+         +      '<small>mIU/mL · ' + fmtCN(l0.date) + '</small></div>'
+         +    '<div class="mini"><span>最新孕酮</span><b>' + (num(l0.prog) || '—') + '</b>'
+         +      '<small>ng/mL · ' + fmtCN(l0.date) + '</small></div>'
+         +  '</div></div>';
+  }
+
+  /* 趋势图 */
+  html += '<div class="card chart-card">'
+       +   '<div class="chart-head">'
+       +     '<div class="chart-legend">'
+       +       '<span class="lg"><i style="background:#6b73c9"></i>HCG（对数轴）</span>'
+       +       '<span class="lg"><i style="background:#e8899b"></i>孕酮</span>'
+       +     '</div>'
+       +   '</div>'
+       +   '<div class="chart-box" id="chartBox">'
+       +     '<canvas id="labChart"></canvas>'
+       +     '<div class="chart-tip" id="chartTip"></div>'
+       +     '<div class="chart-empty" id="chartEmpty">还没有血值数据<br>点右上角「记录」添加</div>'
+       +   '</div>'
+       + '</div>';
+
+  html += '<p class="placeholder-note">提示：HCG 早期通常每 48 小时翻倍一次，8–10 周达到峰值后逐渐下降，属正常现象。孕酮单位若为 nmol/L，需除以 3.18 换算为 ng/mL。</p>';
+
+  /* 记录列表 */
+  html += '<div class="sec-title"><h3>全部记录</h3><span style="font-size:12px;color:var(--ink3)">' + labs.length + ' 条</span></div>';
+
+  if(!labs.length){
+    html += '<div class="card"><div class="empty"><div class="ico">◌</div>'
+         +  '<p>还没有记录</p>'
+         +  '<button class="btn btn-ghost" data-act="add-lab">添加第一条</button>'
+         + '</div></div>';
+  }else{
+    html += '<div class="card">';
+    labs.forEach(function(l){
+      html += '<div class="lab-row">'
+           +    '<div class="lab-date"><b>' + fmtShort(l.date) + '</b>'
+           +      '<small>' + fmtWeekShort(gestAge(l.date)) + '</small></div>'
+           +    '<div class="lab-vals">'
+           +      '<div><span>HCG</span><b>' + (num(l.hcg) ? fmtNum(num(l.hcg)) : '—') + '<i>mIU/mL</i></b></div>'
+           +      '<div><span>孕酮</span><b>' + (num(l.prog) || '—') + '<i>ng/mL</i></b></div>'
+           +    '</div>'
+           +    '<div class="item-ops">'
+           +      '<button class="icon-btn" data-act="edit-lab" data-id="' + l.id + '" title="编辑">改</button>'
+           +      '<button class="icon-btn" data-act="del-lab" data-id="' + l.id + '" title="删除">删</button>'
+           +    '</div>'
+           +  '</div>';
+      if(l.note){
+        html += '<div style="padding:0 0 10px;font-size:12.5px;color:var(--ink2);margin-top:-4px">' + esc(l.note) + '</div>';
+      }
+    });
+    html += '</div>';
+  }
+
+  return html;
+}
+
+/* ---------------- 指标页（血值 / 体重 分段切换） ---------------- */
+function viewMetrics(){
+  var html = '<div class="seg-tabs">'
+    + '<button data-act="pane" data-pane="lab" class="' + (metricPane === 'lab' ? 'active' : '') + '">HCG / 孕酮</button>'
+    + '<button data-act="pane" data-pane="weight" class="' + (metricPane === 'weight' ? 'active' : '') + '">体重变化</button>'
+    + '</div>';
+
+  return html + (metricPane === 'weight' ? viewWeightPane() : viewLabPane());
+}
+
+/* ---------------- 体重页 ---------------- */
+function viewWeightPane(){
+  var ws = sortedWeights();
+  var st = weightStats();
+  var html = '';
+
+  html += '<div class="sec-title"><h3>体重变化</h3>'
+       +  '<button class="link" data-act="add-weight">＋ 记录</button></div>';
+
+  if(!ws.length){
+    html += '<div class="card"><div class="empty"><div class="ico">◌</div>'
+         +  '<p>还没有体重记录<br>建议每周固定时间（早晨空腹）称一次</p>'
+         +  '<button class="btn btn-ghost" data-act="add-weight">记录第一次</button>'
+         + '</div></div>';
+    return html;
+  }
+
+  /* 三个概览数字 */
+  html += '<div class="card" style="margin-bottom:12px"><div class="mini-grid three">'
+       +    '<div class="mini"><span>当前体重</span><b>' + num(st.latest.kg) + '</b>'
+       +      '<small>kg · ' + fmtCN(st.latest.date) + '</small></div>'
+       +    '<div class="mini"><span>累计增重</span><b>'
+       +      (st.gain === null ? '—' : (st.gain >= 0 ? '+' : '') + st.gain.toFixed(1)) + '</b>'
+       +      '<small>' + (st.pre ? '孕前 ' + st.pre + ' kg' : '未填孕前') + '</small></div>'
+       +    '<div class="mini"><span>孕前 BMI</span><b>' + (st.bmi ? st.bmi.toFixed(1) : '—') + '</b>'
+       +      '<small>' + (st.bmi ? bmiCat(st.bmi).t : '待补身高') + '</small></div>'
+       +  '</div></div>';
+
+  /* 推荐区间提示 */
+  if(st.rec && st.gain !== null){
+    var txt, label, cls;
+    if(st.flag === 'high'){
+      label = '偏快'; cls = 'warn';
+      txt = '本周累计增重高于推荐上限 ' + st.rec.hi.toFixed(1) + ' kg，注意控制主食、甜食和夜宵';
+    }else if(st.flag === 'low'){
+      label = '偏慢'; cls = 'warn';
+      txt = '本周累计增重低于推荐下限 ' + st.rec.lo.toFixed(1) + ' kg，注意蛋白质和主食摄入';
+    }else{
+      label = '正常'; cls = 'ok';
+      txt = '本周累计增重在推荐范围内（' + st.rec.lo.toFixed(1) + '–' + st.rec.hi.toFixed(1) + ' kg）';
+    }
+    html += '<div class="card" style="margin-bottom:12px;display:flex;gap:9px;align-items:flex-start">'
+         +   '<span class="badge ' + cls + '" style="margin-top:2px">' + label + '</span>'
+         +   '<div style="font-size:12.5px;color:var(--ink2);line-height:1.65">' + txt
+         +     '<div style="color:var(--ink3);margin-top:2px">按孕前 BMI ' + st.bmi.toFixed(1) + '（'
+         +     bmiCat(st.bmi).t + '）分组，孕期总增重建议 ' + bmiCat(st.bmi).lo + '–' + bmiCat(st.bmi).hi + ' kg</div>'
+         +   '</div></div>';
+  }else if(!st.bmi){
+    html += '<div class="card" style="margin-bottom:12px;font-size:12.5px;color:var(--ink2);line-height:1.65">'
+         +   '填写 <b>身高</b> 和 <b>孕前体重</b> 后，这里会显示个性化的增重推荐区间。'
+         +   '<button class="link" style="font-size:12.5px" data-act="edit-profile">去填写 ›</button></div>';
+  }
+
+  /* 曲线 */
+  html += '<div class="card chart-card">'
+       +   '<div class="chart-head"><div class="chart-legend">'
+       +     '<span class="lg"><i style="background:#e8899b"></i>体重</span>'
+       +     (st.bmi ? '<span class="lg"><i style="background:#9ecdb8"></i>推荐区间</span>' : '')
+       +   '</div></div>'
+       +   '<div class="chart-box" id="wChartBox">'
+       +     '<canvas id="weightChart"></canvas>'
+       +     '<div class="chart-tip" id="wChartTip"></div>'
+       +   '</div>'
+       + '</div>';
+
+  html += '<p class="placeholder-note">推荐区间参考 IOM 孕期增重指南，按孕前 BMI 分组推算，仅供参考。体重受多胎、水肿、称重时间等影响较大，请以产检医生判断为准。</p>';
+
+  /* 列表 */
+  html += '<div class="sec-title"><h3>全部记录</h3>'
+       +  '<span style="font-size:12px;color:var(--ink3)">' + ws.length + ' 条</span></div>'
+       +  '<div class="card">';
+
+  ws.forEach(function(w, i){
+    var prev = ws[i + 1];
+    var diff = prev ? num(w.kg) - num(prev.kg) : null;
+    var gain = st.pre ? num(w.kg) - st.pre : null;
+
+    html += '<div class="lab-row">'
+         +    '<div class="lab-date"><b>' + fmtShort(w.date) + '</b>'
+         +      '<small>' + fmtWeekShort(gestAge(w.date)) + '</small></div>'
+         +    '<div class="lab-vals">'
+         +      '<div><span>体重</span><b>' + num(w.kg) + '<i>kg</i></b></div>'
+         +      '<div><span>较上次</span><b>'
+         +        (diff === null ? '—' : (diff >= 0 ? '+' : '') + diff.toFixed(1)) + '<i>kg</i></b></div>'
+         +      '<div><span>较孕前</span><b>'
+         +        (gain === null ? '—' : (gain >= 0 ? '+' : '') + gain.toFixed(1)) + '<i>kg</i></b></div>'
+         +    '</div>'
+         +    '<div class="item-ops">'
+         +      '<button class="icon-btn" data-act="edit-weight" data-id="' + w.id + '" title="编辑">改</button>'
+         +      '<button class="icon-btn" data-act="del-weight" data-id="' + w.id + '" title="删除">删</button>'
+         +    '</div>'
+         +  '</div>';
+    if(w.note){
+      html += '<div style="padding:0 0 10px;font-size:12.5px;color:var(--ink2);margin-top:-4px">' + esc(w.note) + '</div>';
+    }
+  });
+
+  html += '</div>';
+
+  return html;
+}
+
+/* ---------------- 产检页 ---------------- */
+function viewExams(){
+  var exams = sortedExams();
+  var g = gestAge(todayStr());
+  var html = '';
+
+  html += '<div class="sec-title"><h3>产检记录</h3>'
+       +  '<button class="link" data-act="add-exam">＋ 新增</button></div>';
+
+  /* 计划清单 */
+  if(g){
+    html += '<div class="card" style="margin-bottom:16px">'
+         +  '<div style="font-size:13px;color:var(--ink2);margin-bottom:8px">产检时间表（按孕周自动对照）</div>'
+         +  '<div class="list">';
+    PLAN.forEach(function(p){
+      var done = null;
+      for(var i = 0; i < state.exams.length; i++){
+        if(state.exams[i].type === p.key){ done = state.exams[i]; break; }
+      }
+      var status, cls;
+      if(done){ status = '已完成'; cls = 'ok'; }
+      else if(g.days > p.to){ status = '已过建议期'; cls = 'warn'; }
+      else if(g.days >= p.from){ status = '现在可做'; cls = 'now'; }
+      else {
+        var wait = Math.ceil((p.from - g.days) / 7);
+        status = '还有约 ' + wait + ' 周'; cls = 'mute';
+      }
+      html += '<div class="item">'
+           +   '<span class="dot ' + (done ? 'mint' : (cls === 'warn' ? 'amber' : 'gray')) + '"></span>'
+           +   '<div class="item-main">'
+           +     '<div class="item-title"><b>' + esc(typeLabel(p.key)) + '</b>'
+           +       '<span class="badge ' + cls + '">' + status + '</span></div>'
+           +     '<div class="item-sub">建议 ' + esc(typeWeeks(p.key)) + '</div>'
+           +   '</div>'
+           +   '<div class="item-ops"><button class="icon-btn" data-act="add-exam-type" data-type="' + p.key + '" title="记录">＋</button></div>'
+           + '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  /* 记录列表 */
+  if(!exams.length){
+    html += '<div class="card"><div class="empty"><div class="ico">◌</div>'
+         +  '<p>还没有产检记录<br>每次检查完顺手记一下，报告就不会丢</p>'
+         +  '<button class="btn btn-ghost" data-act="add-exam">新增产检记录</button>'
+         + '</div></div>';
+  }else{
+    exams.forEach(function(e){
+      var g2 = gestAge(e.date);
+      html += '<div class="card" style="margin-bottom:12px">'
+           +   '<div class="item">'
+           +     '<div class="item-main">'
+           +       '<div class="item-title"><b>' + esc(typeLabel(e.type)) + '</b>'
+           +         (e.result ? '<span class="badge ' + (e.result === 'ok' ? 'ok' : e.result === 'warn' ? 'warn' : 'bad') + '">'
+           +           (e.result === 'ok' ? '正常' : e.result === 'warn' ? '需复查' : '异常') + '</span>' : '')
+           +       '</div>'
+           +       '<div class="item-sub">' + e.date + ' · ' + fmtWeek(g2)
+           +         (e.hospital ? ' · ' + esc(e.hospital) : '') + '</div>'
+           +     '</div>'
+           +     '<div class="item-ops">'
+           +       '<button class="icon-btn" data-act="view-exam" data-id="' + e.id + '" title="详情">详情</button>'
+           +     '</div>'
+           +   '</div>';
+      if(e.items && e.items.length){
+        var parts = [];
+        e.items.forEach(function(it){
+          if(it.v) parts.push(esc(it.n) + ' ' + esc(it.v) + (it.u ? esc(it.u) : ''));
+        });
+        if(parts.length){
+          html += '<div class="tl-items" style="padding:8px 0 0;border-top:1px dashed var(--line);margin-top:10px">'
+               +  parts.slice(0, 4).map(function(t){ return '<div>' + t + '</div>'; }).join('')
+               +  (parts.length > 4 ? '<div style="color:var(--ink3)">…还有 ' + (parts.length - 4) + ' 项</div>' : '')
+               +  '</div>';
+        }
+      }
+      if(e.note){
+        html += '<div class="item-note">' + esc(e.note) + '</div>';
+      }
+
+      /* 报告照片缩略图 */
+      if(e.images && e.images.length){
+        html += '<div class="shot-strip">';
+        e.images.slice(0, 3).forEach(function(im, i){
+          html += '<div class="mini-shot" data-act="open-shot" data-exam="' + e.id + '" data-idx="' + i + '">'
+               +   '<img src="' + (im.thumb || im.data) + '" alt="检查报告">'
+               + '</div>';
+        });
+        if(e.images.length > 3){
+          html += '<div class="more">+' + (e.images.length - 3) + '</div>';
+        }
+        html += '</div>';
+      }
+
+      html += '</div>';
+    });
+  }
+
+  return html;
+}
+
+/* ---------------- 时间线 ---------------- */
+function viewTimeline(){
+  var evs = allEvents();
+  var html = '<div class="sec-title"><h3>孕期时间线</h3>'
+           + '<span style="font-size:12px;color:var(--ink3)">共 ' + evs.length + ' 条</span></div>';
+
+  if(!evs.length){
+    return html + '<div class="card"><div class="empty"><div class="ico">◌</div>'
+         + '<p>时间线还是空的<br>记录血值或产检后会自动排进来</p>'
+         + '<button class="btn btn-ghost" data-act="add-lab">记录血值</button>'
+         + '</div></div>';
+  }
+
+  html += '<div class="tl">';
+  evs.forEach(function(ev){
+    var cls = ev.kind === 'lab' ? 'mint'
+            : ev.kind === 'weight' ? 'amber'
+            : (ev.badgeCls === 'warn' ? 'amber' : '');
+    html += '<div class="tl-item ' + cls + '">'
+         +   '<div class="tl-date">' + fmtCN(ev.date) + ' · ' + fmtWeek(gestAge(ev.date)) + '</div>'
+         +   '<div class="tl-card">'
+         +     '<div class="tl-head"><b>' + esc(ev.title) + '</b>'
+         +       (ev.badge ? '<span class="badge ' + ev.badgeCls + '">' + esc(ev.badge) + '</span>' : '')
+         +     '</div>'
+         +     '<div class="tl-meta">' + esc(ev.summary) + '</div>'
+         +     (ev.detail ? '<div class="tl-items">' + ev.detail + '</div>' : '')
+         +     (ev.note ? '<div class="tl-note">' + esc(ev.note) + '</div>' : '')
+         +   '</div>'
+         + '</div>';
+  });
+  html += '</div>';
+
+  return html;
+}
+
+/* ---------------- 设置 ---------------- */
+function viewSettings(){
+  var p = state.profile;
+  var g = gestAge(todayStr());
+  var edd = getEdd();
+  var html = '';
+
+  html += '<div class="sec-title"><h3>孕期档案</h3>'
+       +  '<button class="link" data-act="edit-profile">编辑 ›</button></div>';
+
+  html += '<div class="card">'
+       +   '<div class="set-row"><span class="k">昵称</span><span class="v">' + (p.name ? esc(p.name) : '未填写') + '</span></div>'
+       +   '<div class="set-row"><span class="k">末次月经</span><span class="v">' + (p.lmp || '未填写') + '</span></div>'
+       +   '<div class="set-row"><span class="k">预产期</span><span class="v">' + (edd || '未填写') + '</span></div>'
+       +   '<div class="set-row"><span class="k">当前孕周</span><span class="v">' + fmtWeek(g) + '</span></div>'
+       +   '<div class="set-row"><span class="k">身高 / 孕前体重</span><span class="v">'
+       +      ((p.height ? p.height + ' cm' : '—') + ' / ' + (p.preWeight ? p.preWeight + ' kg' : '—')) + '</span></div>'
+       + '</div>';
+
+  html += '<div class="sec-title"><h3>数据</h3></div>';
+  /* 统计报告照片数量与占用空间 */
+  var imgCount = 0, imgBytes = 0;
+  state.exams.forEach(function(e){
+    (e.images || []).forEach(function(im){
+      imgCount++;
+      if(im.data) imgBytes += Math.round((im.data.length - 22) * 0.75);
+    });
+  });
+  var imgSize = imgBytes > 1048576 ? (imgBytes / 1048576).toFixed(1) + ' MB'
+              : imgBytes > 0 ? Math.max(1, Math.round(imgBytes / 1024)) + ' KB' : '0 KB';
+
+  html += '<div class="card">'
+       +   '<div class="set-row"><span class="k">血值记录</span><span class="v">' + state.labs.length + ' 条</span></div>'
+       +   '<div class="set-row"><span class="k">体重记录</span><span class="v">' + state.weights.length + ' 条</span></div>'
+       +   '<div class="set-row"><span class="k">产检记录</span><span class="v">' + state.exams.length + ' 条</span></div>'
+       +   '<div class="set-row"><span class="k">报告照片</span><span class="v">' + imgCount + ' 张 · ' + imgSize + '</span></div>'
+       +   '<div class="set-actions" style="margin-top:14px">'
+       +     '<button class="btn btn-ghost" data-act="export-json">导出备份</button>'
+       +     '<button class="btn btn-ghost" data-act="import-json">导入备份</button>'
+       +     '<button class="btn btn-ghost" data-act="export-csv">导出表格</button>'
+       +     '<button class="btn btn-danger" data-act="clear-all">清空数据</button>'
+       +   '</div>'
+       + '</div>';
+
+  html += '<p class="placeholder-note">所有数据只保存在这台设备的浏览器里，不会上传到任何服务器。换手机或清理浏览器数据前，记得先「导出备份」，之后用「导入备份」恢复。<br><br>'
+       +  '本工具用于个人记录，检查结果与诊断请以医生意见为准。</p>';
+
+  html += '<div style="text-align:center;padding:26px 0 8px;font-size:11.5px;color:var(--ink3)">好孕日记 · 陪伴每一周</div>';
+
+  return html;
+}
+
+/* ==================================================================
+   6. 数据整理
+   ================================================================== */
+function sortedLabs(){
+  return state.labs.slice().sort(function(a, b){
+    var c = String(b.date).localeCompare(String(a.date));
+    if(c !== 0) return c;
+    return (b.created || 0) - (a.created || 0);
+  });
+}
+
+function sortedExams(){
+  return state.exams.slice().sort(function(a, b){
+    var c = String(b.date).localeCompare(String(a.date));
+    if(c !== 0) return c;
+    return (b.created || 0) - (a.created || 0);
+  });
+}
+
+/** 合并血值与产检成统一事件流（倒序） */
+function allEvents(){
+  var out = [];
+
+  state.labs.forEach(function(l){
+    var g = gestAge(l.date);
+    var sum = [];
+    if(num(l.hcg)) sum.push('HCG ' + fmtNum(num(l.hcg)) + ' mIU/mL');
+    if(num(l.prog)) sum.push('孕酮 ' + num(l.prog) + ' ng/mL');
+    out.push({
+      kind: 'lab',
+      date: l.date,
+      created: l.created || 0,
+      title: '血值检查',
+      summary: sum.join(' · ') || '未填写数值',
+      detail: '',
+      note: l.note || '',
+      badge: '',
+      badgeCls: ''
+    });
+  });
+
+  state.exams.forEach(function(e){
+    var parts = [];
+    (e.items || []).forEach(function(it){
+      if(it.v) parts.push(esc(it.n) + ' ' + esc(it.v) + (it.u ? esc(it.u) : ''));
+    });
+    out.push({
+      kind: 'exam',
+      date: e.date,
+      created: e.created || 0,
+      title: typeLabel(e.type),
+      summary: (e.hospital ? e.hospital : '产检')
+             + (parts.length ? ' · ' + parts.length + ' 项指标' : '')
+             + (e.images && e.images.length ? ' · ' + e.images.length + ' 张照片' : ''),
+      detail: parts.length ? parts.map(function(t){ return '<div>' + t + '</div>'; }).join('') : '',
+      note: e.note || '',
+      badge: e.result === 'ok' ? '正常' : e.result === 'warn' ? '需复查' : e.result === 'bad' ? '异常' : '',
+      badgeCls: e.result === 'ok' ? 'ok' : e.result === 'warn' ? 'warn' : 'bad'
+    });
+  });
+
+  var preW = num(state.profile.preWeight);
+  state.weights.forEach(function(w){
+    var gain = preW ? num(w.kg) - preW : null;
+    out.push({
+      kind: 'weight',
+      date: w.date,
+      created: w.created || 0,
+      title: '体重记录',
+      summary: num(w.kg) + ' kg'
+             + (gain === null ? '' : ' · 较孕前 ' + (gain >= 0 ? '+' : '') + gain.toFixed(1) + ' kg'),
+      detail: '',
+      note: w.note || '',
+      badge: '',
+      badgeCls: ''
+    });
+  });
+
+  out.sort(function(a, b){
+    var c = String(b.date).localeCompare(String(a.date));
+    if(c !== 0) return c;
+    return b.created - a.created;
+  });
+  return out;
+}
+
+/** 下一项待做产检 */
+function nextPlanItem(){
+  var g = gestAge(todayStr());
+  if(!g) return null;
+
+  for(var i = 0; i < PLAN.length; i++){
+    var p = PLAN[i];
+    var done = false;
+    for(var j = 0; j < state.exams.length; j++){
+      if(state.exams[j].type === p.key){ done = true; break; }
+    }
+    if(done) continue;
+    if(g.days > p.to) continue;           // 已经过了建议期就跳过
+
+    var cls, status, when;
+    if(g.days >= p.from){
+      cls = 'now'; status = '现在可做'; when = '本周适合安排';
+    }else{
+      var wait = Math.ceil((p.from - g.days) / 7);
+      cls = 'mute'; status = '待安排'; when = '约 ' + wait + ' 周后（孕 ' + Math.floor(p.from / 7) + ' 周起）';
+    }
+    return { key: p.key, cls: cls, status: status, when: when };
+  }
+  return null;
+}
+
+/* ==================================================================
+   7. 折线图（Canvas 手绘，双 Y 轴）
+   ================================================================== */
+var chartHl = null;   // 当前高亮的点索引
+
+function drawLabChart(hlIndex){
+  var cv = $('#labChart');
+  if(!cv) return;
+
+  var box = $('#chartBox');
+  var emptyEl = $('#chartEmpty');
+  var tipEl = $('#chartTip');
+
+  var labs = state.labs
+    .filter(function(l){ return l.date && (num(l.hcg) > 0 || num(l.prog) > 0); })
+    .sort(function(a, b){ return String(a.date).localeCompare(String(b.date)); });
+
+  if(!labs.length){
+    cv.style.display = 'none';
+    if(emptyEl) emptyEl.style.display = 'flex';
+    return;
+  }
+  cv.style.display = 'block';
+  if(emptyEl) emptyEl.style.display = 'none';
+
+  var W = Math.max(280, box.clientWidth || 320);
+  var H = 214;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  cv.width = Math.round(W * dpr);
+  cv.height = Math.round(H * dpr);
+  cv.style.width = W + 'px';
+  cv.style.height = H + 'px';
+
+  var ctx = cv.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  var L = 44, R = 42, T = 18, B = 30;
+  var plotW = W - L - R;
+  var plotH = H - T - B;
+
+  /* --- X 轴映射 --- */
+  var t0 = d2n(labs[0].date);
+  var t1 = d2n(labs[labs.length - 1].date);
+  var single = (t1 === t0);
+  var span = single ? DAY : (t1 - t0);
+  function xOf(t){
+    if(single) return L + plotW / 2;
+    return L + (t - t0) / span * plotW;
+  }
+
+  /* --- HCG 对数轴 --- */
+  var hvals = [];
+  labs.forEach(function(l){ if(num(l.hcg) > 0) hvals.push(num(l.hcg)); });
+
+  var hMin = 0, hMax = 1, hasH = hvals.length > 0;
+  if(hasH){
+    var lo = Math.min.apply(null, hvals);
+    var hi = Math.max.apply(null, hvals);
+    hMin = Math.floor(Math.log10(lo * 0.75));
+    hMax = Math.ceil(Math.log10(hi * 1.35));
+    if(hMax <= hMin) hMax = hMin + 1;
+  }
+  function yHcg(v){
+    var r = (Math.log10(v) - hMin) / (hMax - hMin);
+    return T + (1 - r) * plotH;
+  }
+
+  /* --- 孕酮线性轴 --- */
+  var pvals = [];
+  labs.forEach(function(l){ if(num(l.prog) > 0) pvals.push(num(l.prog)); });
+
+  var pMax = 0, hasP = pvals.length > 0;
+  if(hasP){
+    pMax = Math.max.apply(null, pvals) * 1.3;
+    if(pMax <= 5) pMax = 5;
+    pMax = Math.ceil(pMax);
+  }
+  function yProg(v){
+    return T + (1 - v / pMax) * plotH;
+  }
+
+  /* --- 网格与坐标轴文字 --- */
+  ctx.font = '10px -apple-system, "PingFang SC", sans-serif';
+  ctx.textBaseline = 'middle';
+
+  var gridColor = '#f2eaeb';
+  var tickLabelColor = '#b7adb5';
+
+  if(hasH){
+    for(var k = hMin; k <= hMax; k++){
+      var y = yHcg(Math.pow(10, k));
+      if(y < T - 1 || y > T + plotH + 1) continue;
+      ctx.beginPath();
+      ctx.strokeStyle = gridColor;
+      ctx.lineWidth = 1;
+      ctx.moveTo(L, y + 0.5);
+      ctx.lineTo(L + plotW, y + 0.5);
+      ctx.stroke();
+
+      ctx.fillStyle = '#9aa0d4';
+      ctx.textAlign = 'right';
+      ctx.fillText(fmtAxis(Math.pow(10, k)), L - 8, y);
+    }
+  }else if(hasP){
+    for(var q = 0; q <= 2; q++){
+      var yy = T + plotH * q / 2;
+      ctx.beginPath();
+      ctx.strokeStyle = gridColor;
+      ctx.moveTo(L, yy + 0.5);
+      ctx.lineTo(L + plotW, yy + 0.5);
+      ctx.stroke();
+
+      ctx.fillStyle = tickLabelColor;
+      ctx.textAlign = 'right';
+      ctx.fillText(String(Math.round(pMax * (1 - q / 2))), L - 8, yy);
+    }
+  }
+
+  /* 右轴：孕酮刻度 */
+  if(hasP){
+    ctx.textAlign = 'left';
+    for(var q2 = 0; q2 <= 2; q2++){
+      var y2 = T + plotH * q2 / 2;
+      ctx.fillStyle = '#e5aebb';
+      ctx.fillText(String(Math.round(pMax * (1 - q2 / 2))), L + plotW + 8, y2);
+    }
+  }
+
+  /* X 轴日期标签（最多 4 个） */
+  ctx.fillStyle = tickLabelColor;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+  var n = labs.length;
+  var idxs = [];
+  if(n === 1) idxs = [0];
+  else if(n === 2) idxs = [0, 1];
+  else if(n === 3) idxs = [0, 1, 2];
+  else idxs = [0, Math.round((n - 1) / 3), Math.round((n - 1) * 2 / 3), n - 1];
+
+  var used = {};
+  idxs.forEach(function(i){
+    var x = xOf(d2n(labs[i].date));
+    if(used[Math.round(x)]) return;
+    used[Math.round(x)] = 1;
+    ctx.fillText(fmtCN(labs[i].date), clamp(x, L + 12, L + plotW - 12), T + plotH + 10);
+  });
+
+  /* --- 折线绘制 --- */
+  function drawSeries(points, yFn, color){
+    if(points.length < 2) return;
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    points.forEach(function(pt, i){
+      if(i === 0) ctx.moveTo(pt.x, pt.y);
+      else ctx.lineTo(pt.x, pt.y);
+    });
+    ctx.stroke();
+  }
+
+  var hPoints = [], pPoints = [];
+  labs.forEach(function(l){
+    var x = xOf(d2n(l.date));
+    if(num(l.hcg) > 0) hPoints.push({ x: x, y: yHcg(num(l.hcg)), v: num(l.hcg) });
+    if(num(l.prog) > 0) pPoints.push({ x: x, y: yProg(num(l.prog)), v: num(l.prog) });
+  });
+
+  /* 面积淡色填充（仅孕酮，增加层次） */
+  if(pPoints.length >= 2){
+    ctx.beginPath();
+    ctx.moveTo(pPoints[0].x, T + plotH);
+    pPoints.forEach(function(pt){ ctx.lineTo(pt.x, pt.y); });
+    ctx.lineTo(pPoints[pPoints.length - 1].x, T + plotH);
+    ctx.closePath();
+    var grad = ctx.createLinearGradient(0, T, 0, T + plotH);
+    grad.addColorStop(0, 'rgba(232,137,155,.16)');
+    grad.addColorStop(1, 'rgba(232,137,155,0)');
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  drawSeries(hPoints, yHcg, '#6b73c9');
+  drawSeries(pPoints, yProg, '#e8899b');
+
+  /* --- 数据点 --- */
+  function drawDots(points, color){
+    points.forEach(function(pt){
+      ctx.beginPath();
+      ctx.arc(pt.x, pt.y, 3.6, 0, Math.PI * 2);
+      ctx.fillStyle = '#fff';
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = color;
+      ctx.stroke();
+    });
+  }
+  drawDots(hPoints, '#6b73c9');
+  drawDots(pPoints, '#e8899b');
+
+  /* --- 高亮点 --- */
+  if(typeof hlIndex === 'number' && hlIndex >= 0 && hlIndex < labs.length){
+    var lb = labs[hlIndex];
+    var hx = xOf(d2n(lb.date));
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = 'rgba(120,110,120,.35)';
+    ctx.lineWidth = 1;
+    ctx.moveTo(hx, T);
+    ctx.lineTo(hx, T + plotH);
+    ctx.stroke();
+    ctx.restore();
+
+    if(num(lb.hcg) > 0){
+      ctx.beginPath();
+      ctx.arc(hx, yHcg(num(lb.hcg)), 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#6b73c9';
+      ctx.fill();
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#fff';
+      ctx.stroke();
+    }
+    if(num(lb.prog) > 0){
+      ctx.beginPath();
+      ctx.arc(hx, yProg(num(lb.prog)), 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = '#e8899b';
+      ctx.fill();
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#fff';
+      ctx.stroke();
+    }
+
+    if(tipEl){
+      var txt = fmtCN(lb.date) + '　HCG ' + (num(lb.hcg) ? fmtNum(num(lb.hcg)) : '—')
+              + '　孕酮 ' + (num(lb.prog) || '—');
+      tipEl.textContent = txt;
+      tipEl.style.left = clamp(hx, 80, W - 80) + 'px';
+      tipEl.style.top = (T - 2) + 'px';
+      tipEl.classList.add('on');
+    }
+  }else if(tipEl){
+    tipEl.classList.remove('on');
+  }
+
+  /* 保存映射，供交互使用 */
+  cv._labs = labs;
+  cv._xOf = xOf;
+  cv._W = W;
+}
+
+/** 坐标轴数字：1200 -> 1.2k，100000 -> 100k */
+function fmtAxis(v){
+  if(v >= 1000000) return (v / 1000000) + 'M';
+  if(v >= 1000) return (v / 1000) + 'k';
+  return String(v);
+}
+
+/* ---------------- 体重折线图 ---------------- */
+function drawWeightChart(hlIndex){
+  var cv = $('#weightChart');
+  if(!cv) return;
+
+  var box = $('#wChartBox');
+  var tipEl = $('#wChartTip');
+
+  var ws = state.weights
+    .filter(function(w){ return w.date && num(w.kg) > 0; })
+    .sort(function(a, b){ return String(a.date).localeCompare(String(b.date)); });
+  if(!ws.length) return;
+
+  var W = Math.max(280, box.clientWidth || 320);
+  var H = 224;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  cv.width = Math.round(W * dpr);
+  cv.height = Math.round(H * dpr);
+  cv.style.width = W + 'px';
+  cv.style.height = H + 'px';
+
+  var ctx = cv.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+
+  var L = 46, R = 18, T = 18, B = 28;
+  var plotW = W - L - R;
+  var plotH = H - T - B;
+
+  var t0 = d2n(ws[0].date);
+  var t1 = d2n(ws[ws.length - 1].date);
+  var single = (t1 === t0);
+  var span = single ? DAY : (t1 - t0);
+  function xOf(t){
+    return single ? L + plotW / 2 : L + (t - t0) / span * plotW;
+  }
+
+  var pre = num(state.profile.preWeight);
+  var useBand = !!bmiOf() && !!state.profile.lmp && !single;
+
+  /* 推荐增重区间：沿时间轴采样 */
+  var band = [];
+  if(useBand){
+    for(var s = 0; s <= 24; s++){
+      var tt = t0 + (t1 - t0) * s / 24;
+      var gg = gestAge(n2d(tt));
+      if(!gg) continue;
+      var rc = recommendGain(gg.w + gg.d / 7);
+      if(!rc) continue;
+      band.push({ x: xOf(tt), lo: pre + rc.lo, hi: pre + rc.hi });
+    }
+  }
+
+  /* Y 轴范围：包含所有体重点、孕前体重与推荐带 */
+  var vals = ws.map(function(w){ return num(w.kg); });
+  if(pre) vals.push(pre);
+  band.forEach(function(p){ vals.push(p.lo); vals.push(p.hi); });
+
+  var vMin = Math.min.apply(null, vals);
+  var vMax = Math.max.apply(null, vals);
+  var pad = Math.max(1, (vMax - vMin) * 0.18);
+  vMin = Math.floor(vMin - pad);
+  vMax = Math.ceil(vMax + pad);
+  if(vMax - vMin < 4) vMax = vMin + 4;
+
+  function yOf(v){
+    return T + (1 - (v - vMin) / (vMax - vMin)) * plotH;
+  }
+
+  /* 网格 + 左侧刻度 */
+  ctx.font = '10px -apple-system, "PingFang SC", sans-serif';
+  ctx.textBaseline = 'middle';
+  var needDecimal = (vMax - vMin) <= 8;
+
+  for(var i = 0; i <= 4; i++){
+    var v = vMin + (vMax - vMin) * i / 4;
+    var y = yOf(v);
+    ctx.beginPath();
+    ctx.strokeStyle = '#f2eaeb';
+    ctx.lineWidth = 1;
+    ctx.moveTo(L, y + 0.5);
+    ctx.lineTo(L + plotW, y + 0.5);
+    ctx.stroke();
+
+    ctx.fillStyle = '#b7adb5';
+    ctx.textAlign = 'right';
+    ctx.fillText(needDecimal ? v.toFixed(1) : String(Math.round(v)), L - 8, y);
+  }
+
+  /* 推荐区间填充带 */
+  if(band.length >= 2){
+    ctx.beginPath();
+    ctx.moveTo(band[0].x, yOf(band[0].hi));
+    band.forEach(function(p){ ctx.lineTo(p.x, yOf(p.hi)); });
+    for(var j = band.length - 1; j >= 0; j--){ ctx.lineTo(band[j].x, yOf(band[j].lo)); }
+    ctx.closePath();
+    ctx.fillStyle = 'rgba(158,205,184,.20)';
+    ctx.fill();
+
+    ctx.save();
+    ctx.setLineDash([4, 4]);
+    ctx.strokeStyle = 'rgba(126,178,155,.7)';
+    ctx.lineWidth = 1;
+    ['hi', 'lo'].forEach(function(key){
+      ctx.beginPath();
+      band.forEach(function(p, k){
+        var yy = yOf(p[key]);
+        if(k === 0) ctx.moveTo(p.x, yy); else ctx.lineTo(p.x, yy);
+      });
+      ctx.stroke();
+    });
+    ctx.restore();
+  }
+
+  /* 孕前体重参考线 */
+  if(pre){
+    ctx.save();
+    ctx.setLineDash([2, 4]);
+    ctx.strokeStyle = '#d3c9ce';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(L, yOf(pre));
+    ctx.lineTo(L + plotW, yOf(pre));
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.fillStyle = '#b0a6ad';
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText('孕前 ' + pre + 'kg', L + plotW - 3, yOf(pre) - 4);
+    ctx.textBaseline = 'middle';
+  }
+
+  /* 折线与面积 */
+  var pts = ws.map(function(w){
+    return { x: xOf(d2n(w.date)), y: yOf(num(w.kg)), v: num(w.kg) };
+  });
+
+  if(pts.length >= 2){
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, T + plotH);
+    pts.forEach(function(p){ ctx.lineTo(p.x, p.y); });
+    ctx.lineTo(pts[pts.length - 1].x, T + plotH);
+    ctx.closePath();
+    var grad = ctx.createLinearGradient(0, T, 0, T + plotH);
+    grad.addColorStop(0, 'rgba(232,137,155,.18)');
+    grad.addColorStop(1, 'rgba(232,137,155,0)');
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.strokeStyle = '#e8899b';
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    pts.forEach(function(p, k){
+      if(k === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y);
+    });
+    ctx.stroke();
+  }
+
+  pts.forEach(function(p){
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3.6, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#e8899b';
+    ctx.stroke();
+  });
+
+  /* X 轴日期标签 */
+  ctx.fillStyle = '#b7adb5';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+
+  var n = ws.length;
+  var idxs = n === 1 ? [0]
+           : n === 2 ? [0, 1]
+           : n === 3 ? [0, 1, 2]
+           : [0, Math.round((n - 1) / 3), Math.round((n - 1) * 2 / 3), n - 1];
+
+  var used = {};
+  idxs.forEach(function(k){
+    var x = xOf(d2n(ws[k].date));
+    if(used[Math.round(x)]) return;
+    used[Math.round(x)] = 1;
+    ctx.fillText(fmtCN(ws[k].date), clamp(x, L + 14, L + plotW - 14), T + plotH + 9);
+  });
+
+  /* 高亮 */
+  if(typeof hlIndex === 'number' && hlIndex >= 0 && hlIndex < ws.length){
+    var cw = ws[hlIndex];
+    var hx = xOf(d2n(cw.date));
+    var hy = yOf(num(cw.kg));
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.setLineDash([3, 4]);
+    ctx.strokeStyle = 'rgba(120,110,120,.35)';
+    ctx.lineWidth = 1;
+    ctx.moveTo(hx, T);
+    ctx.lineTo(hx, T + plotH);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.beginPath();
+    ctx.arc(hx, hy, 5.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#e8899b';
+    ctx.fill();
+    ctx.lineWidth = 2.5;
+    ctx.strokeStyle = '#fff';
+    ctx.stroke();
+
+    if(tipEl){
+      var partsTxt = [fmtCN(cw.date), num(cw.kg) + 'kg'];
+      if(pre){
+        var dGain = num(cw.kg) - pre;
+        partsTxt.push('较孕前 ' + (dGain >= 0 ? '+' : '') + dGain.toFixed(1));
+      }
+      var cg = gestAge(cw.date);
+      var crec = cg ? recommendGain(cg.w + cg.d / 7) : null;
+      if(crec) partsTxt.push('推荐至 ' + crec.hi.toFixed(1));
+
+      tipEl.textContent = partsTxt.join('　');
+      tipEl.style.left = clamp(hx, 84, W - 84) + 'px';
+      tipEl.style.top = (T - 2) + 'px';
+      tipEl.classList.add('on');
+    }
+  }else if(tipEl){
+    tipEl.classList.remove('on');
+  }
+
+  cv._ws = ws;
+  cv._xOf = xOf;
+  cv._W = W;
+}
+
+/* 体重图交互 */
+function bindWeightChartEvents(){
+  var cv = $('#weightChart');
+  if(!cv) return;
+
+  function pick(clientX){
+    var r = cv.getBoundingClientRect();
+    var mx = clientX - r.left;
+    var ws = cv._ws || [];
+    if(!ws.length) return;
+    var best = 0, bestD = Infinity;
+    for(var i = 0; i < ws.length; i++){
+      var x = cv._xOf(d2n(ws[i].date));
+      var dd = Math.abs(x - mx);
+      if(dd < bestD){ bestD = dd; best = i; }
+    }
+    drawWeightChart(best);
+  }
+
+  cv.addEventListener('mousemove', function(e){ pick(e.clientX); });
+  cv.addEventListener('mouseleave', function(){ drawWeightChart(); });
+  cv.addEventListener('touchstart', function(e){
+    if(e.touches[0]) pick(e.touches[0].clientX);
+  }, { passive: true });
+  cv.addEventListener('touchmove', function(e){
+    if(e.touches[0]) pick(e.touches[0].clientX);
+  }, { passive: true });
+  cv.addEventListener('touchend', function(){
+    setTimeout(function(){ drawWeightChart(); }, 1600);
+  });
+}
+
+/* 图表交互 */
+function bindChartEvents(){
+  var cv = $('#labChart');
+  if(!cv) return;
+
+  function pick(clientX){
+    var r = cv.getBoundingClientRect();
+    var mx = clientX - r.left;
+    var labs = cv._labs || [];
+    if(!labs.length) return;
+    var best = 0, bestD = Infinity;
+    for(var i = 0; i < labs.length; i++){
+      var x = cv._xOf(d2n(labs[i].date));
+      var d = Math.abs(x - mx);
+      if(d < bestD){ bestD = d; best = i; }
+    }
+    chartHl = best;
+    drawLabChart(best);
+  }
+
+  cv.addEventListener('mousemove', function(e){ pick(e.clientX); });
+  cv.addEventListener('mouseleave', function(){ chartHl = null; drawLabChart(); });
+  cv.addEventListener('touchstart', function(e){
+    if(e.touches[0]) pick(e.touches[0].clientX);
+  }, { passive: true });
+  cv.addEventListener('touchmove', function(e){
+    if(e.touches[0]) pick(e.touches[0].clientX);
+  }, { passive: true });
+  cv.addEventListener('touchend', function(){
+    setTimeout(function(){ chartHl = null; drawLabChart(); }, 1600);
+  });
+}
+
+window.addEventListener('resize', function(){
+  if(currentTab === 'metrics' && metricPane === 'lab') drawLabChart(chartHl);
+  else if(currentTab === 'metrics' && metricPane === 'weight') drawWeightChart();
+});
+
+/* ==================================================================
+   8. 弹层
+   ================================================================== */
+var sheetSubmit = null;
+
+function openSheet(title, bodyHtml, footHtml){
+  $('#sheetTitle').textContent = title;
+  $('#sheetBody').innerHTML = bodyHtml;
+  $('#sheetFoot').innerHTML = footHtml || '';
+  $('#sheet').classList.add('on');
+  $('#mask').classList.add('on');
+  document.body.style.overflow = 'hidden';
+  $('#sheetBody').scrollTop = 0;
+}
+
+function closeSheet(){
+  $('#sheet').classList.remove('on');
+  $('#mask').classList.remove('on');
+  document.body.style.overflow = '';
+  sheetSubmit = null;
+}
+
+/* ==================================================================
+   8.5 报告照片：拍照 / 选图 / 压缩 / 查看
+   ================================================================== */
+var tempImages = [];        // 表单编辑期间的照片数组
+var IMG_MAX = 1400;         // 保存用长边上限（px）
+var IMG_QUALITY = 0.78;     // 保存用 JPEG 质量
+var THUMB_MAX = 220;        // 缩略图长边
+var SHOT_LIMIT = 12;        // 单条记录最多张数
+
+/** 按长边限制把图片绘到 canvas（白底，避免透明 PNG 变黑） */
+function imageToCanvas(img, maxSide){
+  var scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+  var cv = document.createElement('canvas');
+  cv.width  = Math.max(1, Math.round(img.width * scale));
+  cv.height = Math.max(1, Math.round(img.height * scale));
+  var ctx = cv.getContext('2d');
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, cv.width, cv.height);
+  ctx.drawImage(img, 0, 0, cv.width, cv.height);
+  return cv;
+}
+
+/** 读取并压缩一张图片 -> { data, thumb, w, h } */
+function compressImage(file){
+  return new Promise(function(resolve, reject){
+    if(!file || !/^image\//.test(file.type || '')){
+      reject(new Error('not image'));
+      return;
+    }
+
+    var reader = new FileReader();
+    reader.onerror = function(){ reject(new Error('read fail')); };
+    reader.onload = function(ev){
+      var img = new Image();
+      img.onerror = function(){ reject(new Error('decode fail')); };
+      img.onload = function(){
+        try{
+          var big = imageToCanvas(img, IMG_MAX);
+          var small = imageToCanvas(img, THUMB_MAX);
+          resolve({
+            data: big.toDataURL('image/jpeg', IMG_QUALITY),
+            thumb: small.toDataURL('image/jpeg', 0.62),
+            w: big.width,
+            h: big.height
+          });
+        }catch(err){ reject(err); }
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+/** 渲染表单里的照片格子 */
+function renderShotList(){
+  var box = $('#shotList');
+  if(!box) return;
+
+  var html = tempImages.map(function(im, i){
+    return '<div class="shot">'
+         +   '<img src="' + (im.thumb || im.data) + '" alt="检查报告">'
+         +   '<button type="button" class="del" data-act="del-shot" data-idx="' + i + '">✕</button>'
+         + '</div>';
+  }).join('');
+
+  if(tempImages.length < SHOT_LIMIT){
+    html += '<div class="shot-add" data-act="pick-shot"><i>＋</i>添加</div>';
+  }
+  box.innerHTML = html;
+}
+
+/** 处理选择 / 拍摄的文件 */
+function handleShotFiles(files){
+  var arr = Array.prototype.slice.call(files || []);
+  if(!arr.length) return;
+
+  var room = SHOT_LIMIT - tempImages.length;
+  if(room <= 0){ toast('单条记录最多 ' + SHOT_LIMIT + ' 张'); return; }
+  if(arr.length > room){
+    arr = arr.slice(0, room);
+    toast('最多再添加 ' + room + ' 张');
+  }
+
+  toast('正在压缩图片…');
+
+  Promise.all(arr.map(function(f){
+    return compressImage(f).catch(function(){ return null; });
+  })).then(function(list){
+    var ok = list.filter(Boolean);
+    if(!ok.length){
+      toast('图片读取失败，可先截图或转成 JPG 再上传');
+      return;
+    }
+    ok.forEach(function(im){ tempImages.push(im); });
+    renderShotList();
+    toast('已添加 ' + ok.length + ' 张');
+  });
+}
+
+/* ---------- 全屏查看 ---------- */
+var lbList = [], lbIdx = 0;
+
+function openLightbox(images, idx){
+  lbList = images || [];
+  if(!lbList.length) return;
+  lbIdx = clamp(idx || 0, 0, lbList.length - 1);
+  showLightbox();
+  $('#lightbox').classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightbox(){
+  var im = lbList[lbIdx];
+  if(!im) return;
+  $('#lbImg').src = im.data;
+  $('#lbCount').textContent = (lbIdx + 1) + ' / ' + lbList.length;
+  $('#lbPrev').disabled = (lbIdx === 0);
+  $('#lbNext').disabled = (lbIdx === lbList.length - 1);
+}
+
+function closeLightbox(){
+  $('#lightbox').classList.remove('on');
+  /* 详情弹层还开着时，保持页面不滚动 */
+  document.body.style.overflow = $('#sheet').classList.contains('on') ? 'hidden' : '';
+}
+
+/** 按 id 找产检记录 */
+function findExam(id){
+  for(var i = 0; i < state.exams.length; i++){
+    if(state.exams[i].id === id) return state.exams[i];
+  }
+  return null;
+}
+
+/* ==================================================================
+   9. 表单：孕期档案
+   ================================================================== */
+function openProfileForm(){
+  var p = state.profile;
+  var body = ''
+    + '<div class="field"><label>昵称（选填）</label>'
+    +   '<input class="input" id="fName" placeholder="怎么称呼你" value="' + esc(p.name) + '"></div>'
+    + '<div class="field"><label class="req">末次月经第一天</label>'
+    +   '<input class="input" type="date" id="fLmp" value="' + esc(p.lmp) + '"></div>'
+    + '<div class="field"><label class="req">预产期</label>'
+    +   '<input class="input" type="date" id="fEdd" value="' + esc(getEdd()) + '"></div>'
+    + '<p class="hint">两项会自动换算（预产期 = 末次月经 + 280 天）。若医生给过预产期，直接改上面那一项即可。</p>'
+    + '<div class="grid2" style="margin-top:14px">'
+    +   '<div class="field" style="margin:0"><label>身高（cm）</label>'
+    +     '<input class="input" type="number" inputmode="decimal" id="fHeight" placeholder="160" value="' + esc(p.height) + '"></div>'
+    +   '<div class="field" style="margin:0"><label>孕前体重（kg）</label>'
+    +     '<input class="input" type="number" inputmode="decimal" id="fWeight" placeholder="52" value="' + esc(p.preWeight) + '"></div>'
+    + '</div>';
+
+  openSheet('孕期档案', body,
+    '<button class="btn btn-primary btn-block" data-act="save-profile">保存</button>');
+
+  var lmpEl = $('#fLmp'), eddEl = $('#fEdd');
+  lmpEl.addEventListener('change', function(){
+    if(lmpEl.value) eddEl.value = n2d(d2n(lmpEl.value) + 280 * DAY);
+  });
+  eddEl.addEventListener('change', function(){
+    if(eddEl.value) lmpEl.value = n2d(d2n(eddEl.value) - 280 * DAY);
+  });
+
+  sheetSubmit = function(){
+    var lmp = lmpEl.value;
+    var edd = eddEl.value;
+    if(!lmp && !edd){ toast('请至少填写一项日期'); return false; }
+
+    state.profile.name = $('#fName').value.trim();
+    state.profile.lmp = lmp || n2d(d2n(edd) - 280 * DAY);
+    state.profile.edd = edd || n2d(d2n(lmp) + 280 * DAY);
+    state.profile.height = $('#fHeight').value;
+    state.profile.preWeight = $('#fWeight').value;
+
+    saveState();
+    render();
+    toast('档案已保存');
+    return true;
+  };
+}
+
+/* ==================================================================
+   10. 表单：血值记录
+   ================================================================== */
+function openLabForm(lab){
+  var isEdit = !!lab;
+  var d = lab ? lab : { date: todayStr(), hcg:'', prog:'', note:'' };
+
+  var body = ''
+    + '<div class="field"><label class="req">抽血日期</label>'
+    +   '<input class="input" type="date" id="labDate" value="' + esc(d.date) + '"></div>'
+    + '<div class="grid2">'
+    +   '<div class="field"><label>HCG（mIU/mL）</label>'
+    +     '<input class="input" type="number" inputmode="decimal" id="labHcg" placeholder="如 1240" value="' + (num(d.hcg) ? num(d.hcg) : '') + '"></div>'
+    +   '<div class="field"><label>孕酮（ng/mL）</label>'
+    +     '<input class="input" type="number" inputmode="decimal" id="labProg" placeholder="如 28.6" value="' + (num(d.prog) ? num(d.prog) : '') + '"></div>'
+    + '</div>'
+    + '<div class="field"><label>备注</label>'
+    +   '<textarea id="labNote" placeholder="如：市妇幼抽血，医生让 3 天后复查">' + esc(d.note || '') + '</textarea></div>'
+    + '<p class="hint">两个数值至少填一个。HCG 只填数字，单位是 mIU/mL；孕酮单位若为 nmol/L，请 ÷3.18 换算成 ng/mL 再填。</p>';
+
+  openSheet(isEdit ? '编辑血值记录' : '记录 HCG / 孕酮', body,
+    '<button class="btn btn-primary btn-block" data-act="save-lab">' + (isEdit ? '保存修改' : '保存记录') + '</button>');
+
+  sheetSubmit = function(){
+    var date = $('#labDate').value;
+    var hcg = $('#labHcg').value.trim();
+    var prog = $('#labProg').value.trim();
+
+    if(!date){ toast('请选择抽血日期'); return false; }
+    if(!num(hcg) && !num(prog)){ toast('HCG 和孕酮至少要填一个'); return false; }
+
+    if(isEdit){
+      lab.date = date;
+      lab.hcg = hcg;
+      lab.prog = prog;
+      lab.note = $('#labNote').value.trim();
+    }else{
+      state.labs.push({
+        id: uid(),
+        date: date,
+        hcg: hcg,
+        prog: prog,
+        note: $('#labNote').value.trim(),
+        created: Date.now()
+      });
+    }
+
+    saveState();
+    render();
+    toast(isEdit ? '已更新' : '已记录');
+    return true;
+  };
+}
+
+/* ==================================================================
+   10.5 表单：体重记录
+   ================================================================== */
+function openWeightForm(w){
+  var isEdit = !!w;
+  var d = w || { date: todayStr(), kg:'', note:'' };
+  var st = weightStats();
+
+  var hint = '';
+  if(st && st.rec){
+    hint = '<p class="hint">按当前孕周 ' + st.age.w + ' 周，推荐累计增重 '
+         + st.rec.lo.toFixed(1) + '–' + st.rec.hi.toFixed(1) + ' kg；'
+         + '对应体重 ' + (st.pre + st.rec.lo).toFixed(1) + '–' + (st.pre + st.rec.hi).toFixed(1) + ' kg。</p>';
+  }else{
+    hint = '<p class="hint">建议每周固定时间称重（早晨空腹、排便后、穿相近衣物），曲线更有参考价值。'
+         + '填写身高与孕前体重后，可显示个性化增重推荐区间。</p>';
+  }
+
+  var body = ''
+    + '<div class="field"><label class="req">记录日期</label>'
+    +   '<input class="input" type="date" id="wDate" value="' + esc(d.date) + '"></div>'
+    + '<div class="field"><label class="req">体重（kg）</label>'
+    +   '<input class="input" type="number" inputmode="decimal" step="0.1" id="wKg" placeholder="如 58.2" value="'
+    +   (num(d.kg) ? num(d.kg) : '') + '"></div>'
+    + '<div class="field"><label>备注</label>'
+    +   '<textarea id="wNote" placeholder="如：早晨空腹称重 / 产检称的">' + esc(d.note || '') + '</textarea></div>'
+    + hint;
+
+  openSheet(isEdit ? '编辑体重记录' : '记录体重', body,
+    '<button class="btn btn-primary btn-block" data-act="save-weight">'
+    + (isEdit ? '保存修改' : '保存记录') + '</button>');
+
+  sheetSubmit = function(){
+    var date = $('#wDate').value;
+    var kg = $('#wKg').value.trim();
+
+    if(!date){ toast('请选择记录日期'); return false; }
+    if(!num(kg) || num(kg) < 20 || num(kg) > 200){ toast('请输入合理的体重（20–200 kg）'); return false; }
+
+    if(isEdit){
+      w.date = date;
+      w.kg = kg;
+      w.note = $('#wNote').value.trim();
+    }else{
+      state.weights.push({
+        id: uid(),
+        date: date,
+        kg: kg,
+        note: $('#wNote').value.trim(),
+        created: Date.now()
+      });
+    }
+
+    saveState();
+    render();
+    toast(isEdit ? '已更新' : '已记录');
+    return true;
+  };
+}
+
+/* ==================================================================
+   11. 表单：产检记录
+   ================================================================== */
+function itemRowHtml(it){
+  it = it || { n:'', v:'', u:'' };
+  return '<div class="item-row">'
+       +   '<input class="input i-name" placeholder="项目" value="' + esc(it.n) + '">'
+       +   '<input class="input i-val" placeholder="结果" value="' + esc(it.v) + '">'
+       +   '<input class="input i-unit" placeholder="单位" value="' + esc(it.u) + '">'
+       +   '<button type="button" class="icon-btn" data-act="del-item">✕</button>'
+       + '</div>';
+}
+
+function openExamForm(exam, presetType){
+  var isEdit = !!exam;
+  var type = exam ? exam.type : (presetType || 'us1');
+  var d = exam || { date: todayStr(), hospital:'', result:'ok', items:[], note:'' };
+
+  /* 本次编辑的照片列表（编辑时载入原图） */
+  tempImages = (isEdit && Array.isArray(d.images)) ? d.images.slice() : [];
+
+  /* 编辑时用已有指标，新建时用模板的空指标 */
+  var items = [];
+  if(isEdit){
+    items = (d.items || []).map(function(i){ return { n:i.n, v:i.v, u:i.u }; });
+  }else{
+    var tpl = findType(type);
+    items = tpl.items.map(function(i){ return { n:i.n, v:'', u:i.u }; });
+  }
+
+  var opts = EXAM_TYPES.map(function(t){
+    return '<option value="' + t.key + '"' + (t.key === type ? ' selected' : '') + '>'
+         + esc(t.label) + '（' + esc(t.weeks) + '）</option>';
+  }).join('');
+
+  var body = ''
+    + '<div class="field"><label class="req">检查日期</label>'
+    +   '<input class="input" type="date" id="exDate" value="' + esc(d.date) + '"></div>'
+    + '<div class="field"><label class="req">检查项目</label>'
+    +   '<select id="exType">' + opts + '</select></div>'
+    + '<div class="field"><label>医院 / 科室</label>'
+    +   '<input class="input" id="exHospital" placeholder="如：市妇幼 产科门诊" value="' + esc(d.hospital || '') + '"></div>'
+    + '<div class="field"><label>结果结论</label>'
+    +   '<div class="seg">'
+    +     '<label><input type="radio" name="res" value="ok"' + (d.result === 'ok' ? ' checked' : '') + '><span>正常</span></label>'
+    +     '<label><input type="radio" name="res" value="warn"' + (d.result === 'warn' ? ' checked' : '') + '><span>需复查</span></label>'
+    +     '<label><input type="radio" name="res" value="bad"' + (d.result === 'bad' ? ' checked' : '') + '><span>异常</span></label>'
+    +     '<label><input type="radio" name="res" value=""' + (!d.result ? ' checked' : '') + '><span>未判定</span></label>'
+    +   '</div></div>'
+    + '<div class="field"><label>具体指标</label>'
+    +   '<div class="item-rows" id="itemRows">'
+    +     items.map(itemRowHtml).join('')
+    +   '</div>'
+    +   '<button type="button" class="add-item" data-act="add-item">＋ 添加一项指标</button></div>'
+    + '<div class="field"><label>医生嘱咐 / 备注</label>'
+    +   '<textarea id="exNote" placeholder="如：胎盘位于后壁，注意休息，2 周后复查">' + esc(d.note || '') + '</textarea></div>'
+    + '<div class="field"><label>B超单 / 报告照片</label>'
+    +   '<div class="shots" id="shotList"></div>'
+    +   '<div class="shot-actions">'
+    +     '<button type="button" data-act="pick-shot">从相册选择</button>'
+    +     '<button type="button" data-act="take-shot">拍照</button>'
+    +   '</div>'
+    +   '<p class="hint">照片会压缩后保存在本机，不会上传。正对报告单拍摄、避开反光，文字更清楚。</p></div>';
+
+  openSheet(isEdit ? '编辑产检记录' : '新增产检记录', body,
+    '<button class="btn btn-primary btn-block" data-act="save-exam">' + (isEdit ? '保存修改' : '保存记录') + '</button>');
+
+  renderShotList();
+
+  /* 切换检查类型时，重建指标行（编辑态下只在用户主动切换时重建） */
+  var typeEl = $('#exType');
+  typeEl.addEventListener('change', function(){
+    var tpl = findType(typeEl.value);
+    $('#itemRows').innerHTML = tpl.items.map(function(i){
+      return itemRowHtml({ n:i.n, v:'', u:i.u });
+    }).join('');
+    if(!tpl.items.length){
+      $('#itemRows').innerHTML = itemRowHtml({ n:'', v:'', u:'' });
+    }
+  });
+
+  sheetSubmit = function(){
+    var date = $('#exDate').value;
+    if(!date){ toast('请选择检查日期'); return false; }
+
+    var rows = $$('#itemRows .item-row');
+    var newItems = [];
+    rows.forEach(function(r){
+      var n = $('.i-name', r).value.trim();
+      var v = $('.i-val', r).value.trim();
+      var u = $('.i-unit', r).value.trim();
+      if(n || v) newItems.push({ n: n || '项目', v: v, u: u });
+    });
+
+    var resEl = document.querySelector('input[name="res"]:checked');
+    var result = resEl ? resEl.value : '';
+
+    var t = $('#exType').value;
+
+    if(isEdit){
+      exam.date = date;
+      exam.type = t;
+      exam.hospital = $('#exHospital').value.trim();
+      exam.result = result;
+      exam.items = newItems;
+      exam.note = $('#exNote').value.trim();
+      exam.images = tempImages.slice();
+    }else{
+      state.exams.push({
+        id: uid(),
+        date: date,
+        type: t,
+        hospital: $('#exHospital').value.trim(),
+        result: result,
+        items: newItems,
+        note: $('#exNote').value.trim(),
+        images: tempImages.slice(),
+        created: Date.now()
+      });
+    }
+
+    if(!saveState()){
+      /* 空间不足时保留弹层，方便先删掉几张照片再存 */
+      return false;
+    }
+    render();
+    toast(isEdit ? '已更新' : '已保存');
+    return true;
+  };
+}
+
+function findType(key){
+  for(var i = 0; i < EXAM_TYPES.length; i++){
+    if(EXAM_TYPES[i].key === key) return EXAM_TYPES[i];
+  }
+  return { key: key, label: '检查', weeks: '', items: [] };
+}
+
+/* ---------- 产检详情 ---------- */
+function openExamDetail(id){
+  var e = null;
+  for(var i = 0; i < state.exams.length; i++){
+    if(state.exams[i].id === id){ e = state.exams[i]; break; }
+  }
+  if(!e) return;
+
+  var g = gestAge(e.date);
+  var body = ''
+    + '<div class="card" style="box-shadow:none;background:#fdfbfb;border:1px solid var(--line)">'
+    +   '<div class="set-row"><span class="k">检查项目</span><span class="v">' + esc(typeLabel(e.type)) + '</span></div>'
+    +   '<div class="set-row"><span class="k">检查日期</span><span class="v">' + e.date + '　' + fmtWeek(g) + '</span></div>'
+    +   '<div class="set-row"><span class="k">医院</span><span class="v">' + (e.hospital ? esc(e.hospital) : '—') + '</span></div>'
+    +   '<div class="set-row"><span class="k">结论</span><span class="v">'
+    +     (e.result === 'ok' ? '正常' : e.result === 'warn' ? '需复查' : e.result === 'bad' ? '异常' : '未判定') + '</span></div>'
+    + '</div>';
+
+  if(e.items && e.items.length){
+    body += '<div class="sec-title" style="margin:18px 0 6px"><h3>检查指标</h3></div><div class="card" style="box-shadow:none;background:#fdfbfb;border:1px solid var(--line)">';
+    e.items.forEach(function(it){
+      body += '<div class="set-row"><span class="k">' + esc(it.n) + '</span><span class="v">'
+            + (it.v ? esc(it.v) : '—') + (it.u ? ' ' + esc(it.u) : '') + '</span></div>';
+    });
+    body += '</div>';
+  }
+
+  if(e.note){
+    body += '<div class="sec-title" style="margin:18px 0 6px"><h3>备注</h3></div>'
+          + '<div class="card" style="box-shadow:none;background:#fdfbfb;border:1px solid var(--line)">'
+          + '<div style="font-size:13.5px;line-height:1.75;white-space:pre-wrap">' + esc(e.note) + '</div></div>';
+  }
+
+  /* 报告照片 */
+  if(e.images && e.images.length){
+    body += '<div class="sec-title" style="margin:18px 0 6px"><h3>报告照片</h3>'
+          +   '<span style="font-size:12px;color:var(--ink3)">' + e.images.length + ' 张 · 点击看大图</span></div>'
+          +   '<div class="shots">';
+    e.images.forEach(function(im, i){
+      body += '<div class="shot" data-act="open-shot" data-exam="' + e.id + '" data-idx="' + i + '">'
+            +   '<img src="' + (im.thumb || im.data) + '" alt="检查报告">'
+            + '</div>';
+    });
+    body += '</div>';
+  }
+
+  body += '<div class="set-actions" style="margin-top:20px">'
+        +   '<button class="btn btn-ghost" data-act="edit-exam" data-id="' + e.id + '">编辑</button>'
+        +   '<button class="btn btn-danger" data-act="del-exam" data-id="' + e.id + '">删除</button>'
+        + '</div>';
+
+  openSheet('检查详情', body, '<button class="btn btn-ghost btn-block" data-act="close-sheet">关闭</button>');
+}
+
+/* ==================================================================
+   12. 导入导出
+   ================================================================== */
+/**
+ * 通用下载函数。
+ * 在 Android 壳内（存在 AndroidBridge）时走系统「另存为」文件选择器；
+ * 在普通浏览器里走 Blob + a[download]。
+ * 返回 true 表示已交给原生层处理，调用方无需再提示成功。
+ */
+function download(filename, content, mime){
+  /* App 内：转 base64 后交给原生层保存 */
+  if(window.AndroidBridge && typeof window.AndroidBridge.saveFile === 'function'){
+    try{
+      var b64 = btoa(unescape(encodeURIComponent(content)));
+      window.__onNativeSaveDone = function(ok){
+        toast(ok ? ('已保存：' + filename) : '导出已取消');
+        window.__onNativeSaveDone = null;
+      };
+      window.AndroidBridge.saveFile(filename, b64, mime || '');
+      return true;
+    }catch(e){ /* 桥调用失败时退回浏览器下载 */ }
+  }
+
+  /* 浏览器环境 */
+  var blob = new Blob([content], { type: mime || 'text/plain;charset=utf-8' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+  return false;
+}
+
+function exportJson(){
+  var data = JSON.stringify({
+    app: 'haoyun-journal',
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    profile: state.profile,
+    labs: state.labs,
+    weights: state.weights,
+    exams: state.exams
+  }, null, 2);
+
+  /* 原生层已保存时会自行提示，这里只在浏览器环境提示 */
+  if(!download('好孕日记备份-' + todayStr() + '.json', data, 'application/json')){
+    toast('备份已导出');
+  }
+}
+
+function exportCsv(){
+  var rows = [['类型', '日期', '孕周', '项目', '结果', '单位', '备注']];
+
+  state.labs.forEach(function(l){
+    var g = gestAge(l.date);
+    var wk = g ? (g.w + '周' + (g.d ? '+' + g.d + '天' : '')) : '';
+    if(num(l.hcg)) rows.push(['血值', l.date, wk, 'HCG', num(l.hcg), 'mIU/mL', l.note || '']);
+    if(num(l.prog)) rows.push(['血值', l.date, wk, '孕酮', num(l.prog), 'ng/mL', l.note || '']);
+    if(!num(l.hcg) && !num(l.prog)) rows.push(['血值', l.date, wk, '', '', '', l.note || '']);
+  });
+
+  state.exams.forEach(function(e){
+    var g = gestAge(e.date);
+    var wk = g ? (g.w + '周' + (g.d ? '+' + g.d + '天' : '')) : '';
+    var name = typeLabel(e.type);
+    var res = e.result === 'ok' ? '正常' : e.result === 'warn' ? '需复查' : e.result === 'bad' ? '异常' : '';
+    if(e.items && e.items.length){
+      e.items.forEach(function(it){
+        rows.push(['产检', e.date, wk, name + '-' + it.n, it.v || '', it.u || '', e.note || '']);
+      });
+    }else{
+      rows.push(['产检', e.date, wk, name, res, '', e.note || '']);
+    }
+  });
+
+  var preW = num(state.profile.preWeight);
+  state.weights.forEach(function(w){
+    var wg = gestAge(w.date);
+    var wwk = wg ? (wg.w + '周' + (wg.d ? '+' + wg.d + '天' : '')) : '';
+    var wgain = preW ? (num(w.kg) - preW) : null;
+    rows.push(['体重', w.date, wwk, '体重', num(w.kg), 'kg',
+      (wgain === null ? '' : '较孕前 ' + (wgain >= 0 ? '+' : '') + wgain.toFixed(1) + 'kg　') + (w.note || '')]);
+  });
+
+  var csv = '\ufeff' + rows.map(function(r){
+    return r.map(function(c){
+      return '"' + String(c == null ? '' : c).replace(/"/g, '""') + '"';
+    }).join(',');
+  }).join('\r\n');
+
+  if(!download('好孕日记-' + todayStr() + '.csv', csv, 'text/csv;charset=utf-8')){
+    toast('表格已导出');
+  }
+}
+
+function importJson(file){
+  var reader = new FileReader();
+  reader.onload = function(){
+    try{
+      var d = JSON.parse(reader.result);
+      if(!d || (!d.labs && !d.exams && !d.weights && !d.profile)) throw new Error('格式不对');
+
+      if(!confirm('导入会覆盖当前所有记录，确定继续吗？')) return;
+
+      state.profile = Object.assign({ name:'', lmp:'', edd:'', height:'', preWeight:'' }, d.profile || {});
+      state.labs    = Array.isArray(d.labs) ? d.labs.map(normalizeLab) : [];
+      state.weights = Array.isArray(d.weights) ? d.weights.map(normalizeWeight) : [];
+      state.exams   = Array.isArray(d.exams) ? d.exams.map(normalizeExam) : [];
+
+      saveState();
+      render();
+      toast('导入成功');
+    }catch(err){
+      toast('导入失败：文件格式不正确');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function normalizeLab(l){
+  return {
+    id: l.id || uid(),
+    date: l.date || todayStr(),
+    hcg: l.hcg || '',
+    prog: l.prog || '',
+    note: l.note || '',
+    created: l.created || Date.now()
+  };
+}
+
+function normalizeExam(e){
+  return {
+    id: e.id || uid(),
+    date: e.date || todayStr(),
+    type: e.type || 'other',
+    hospital: e.hospital || '',
+    result: e.result || '',
+    items: Array.isArray(e.items) ? e.items : [],
+    images: Array.isArray(e.images) ? e.images : [],
+    note: e.note || '',
+    created: e.created || Date.now()
+  };
+}
+
+function normalizeWeight(w){
+  return {
+    id: w.id || uid(),
+    date: w.date || todayStr(),
+    kg: w.kg || '',
+    note: w.note || '',
+    created: w.created || Date.now()
+  };
+}
+
+/* ==================================================================
+   13. 示例数据
+   ================================================================== */
+function loadDemo(){
+  if(state.labs.length || state.exams.length || state.weights.length){
+    if(!confirm('将追加一组示例数据用于预览，确定吗？')) return;
+  }
+
+  var today = todayStr();
+  var lmp = n2d(d2n(today) - 168 * DAY);   // 24 周
+
+  state.profile.lmp = lmp;
+  state.profile.edd = n2d(d2n(lmp) + 280 * DAY);
+  if(!state.profile.name) state.profile.name = '小满妈妈';
+
+  var seq = [
+    { off: 30, hcg: 186,     prog: 22.4 },
+    { off: 33, hcg: 512,     prog: 25.8 },
+    { off: 36, hcg: 1680,    prog: 27.1 },
+    { off: 40, hcg: 6240,    prog: 30.2 },
+    { off: 45, hcg: 24800,   prog: 31.6 },
+    { off: 52, hcg: 86400,   prog: 29.4 },
+    { off: 58, hcg: 132000,  prog: 27.8 }
+  ];
+  seq.forEach(function(s, i){
+    state.labs.push({
+      id: uid(),
+      date: n2d(d2n(lmp) + s.off * DAY),
+      hcg: String(s.hcg),
+      prog: String(s.prog),
+      note: i === 0 ? '首次抽血，确认怀孕' : '',
+      created: Date.now() - (seq.length - i) * 1000
+    });
+  });
+
+  var demoExams = [
+    { off: 49,  type:'us1',     result:'ok',   hospital:'市妇幼 产科', items:[
+      { n:'孕囊大小', v:'22×18', u:'mm' }, { n:'胎芽长度', v:'8', u:'mm' }, { n:'胎心搏动', v:'可见', u:'' } ], note:'宫内早孕，可见胎心' },
+    { off: 84,  type:'nt',      result:'ok',   hospital:'市妇幼 超声科', items:[
+      { n:'NT 厚度', v:'1.6', u:'mm' }, { n:'头臀长 CRL', v:'62', u:'mm' }, { n:'鼻骨', v:'可见', u:'' } ], note:'NT 在正常范围' },
+    { off: 112, type:'tang',    result:'ok',   hospital:'市妇幼 产科', items:[
+      { n:'21-三体风险', v:'1/12000 低风险', u:'' }, { n:'18-三体风险', v:'1/30000 低风险', u:'' } ], note:'' },
+    { off: 154, type:'struct',  result:'ok',   hospital:'市妇幼 超声科', items:[
+      { n:'双顶径 BPD', v:'52', u:'mm' }, { n:'股骨长 FL', v:'36', u:'mm' },
+      { n:'羊水指数 AFI', v:'14.2', u:'cm' }, { n:'胎盘位置', v:'后壁', u:'' } ], note:'结构未见明显异常' }
+  ];
+  demoExams.forEach(function(e, i){
+    state.exams.push({
+      id: uid(),
+      date: n2d(d2n(lmp) + e.off * DAY),
+      type: e.type,
+      hospital: e.hospital,
+      result: e.result,
+      items: e.items,
+      note: e.note,
+      created: Date.now() - (demoExams.length - i) * 1000
+    });
+  });
+
+  /* 体重示例：孕前 52kg / 162cm */
+  if(!num(state.profile.preWeight)) state.profile.preWeight = '52';
+  if(!num(state.profile.height)) state.profile.height = '162';
+
+  var demoWeights = [
+    { off: 56,  kg: 52.4 }, { off: 70,  kg: 52.0 }, { off: 84,  kg: 53.2 },
+    { off: 98,  kg: 54.6 }, { off: 112, kg: 56.0 }, { off: 126, kg: 57.1 },
+    { off: 140, kg: 58.0 }, { off: 154, kg: 58.9 }, { off: 168, kg: 59.4 }
+  ];
+  demoWeights.forEach(function(dw, i){
+    state.weights.push({
+      id: uid(),
+      date: n2d(d2n(lmp) + dw.off * DAY),
+      kg: String(dw.kg),
+      note: i === 0 ? '早晨空腹称重' : '',
+      created: Date.now() - (demoWeights.length - i) * 1000
+    });
+  });
+
+  saveState();
+  currentTab = 'home';
+  render();
+  toast('示例数据已载入');
+}
+
+/* ==================================================================
+   14. 事件委托
+   ================================================================== */
+document.addEventListener('click', function(e){
+  var el = e.target.closest('[data-act]');
+  if(!el) return;
+  var act = el.dataset.act;
+  var id = el.dataset.id;
+
+  switch(act){
+    case 'tab':
+      currentTab = el.dataset.tab;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      break;
+
+    case 'close-sheet':
+      closeSheet();
+      break;
+
+    case 'sheet-submit':
+      if(typeof sheetSubmit === 'function'){
+        var ok = sheetSubmit();
+        if(ok !== false) closeSheet();
+      }
+      break;
+
+    case 'edit-profile':
+      closeSheet();
+      setTimeout(openProfileForm, 120);
+      break;
+
+    case 'save-profile':
+      if(typeof sheetSubmit === 'function' && sheetSubmit() !== false) closeSheet();
+      break;
+
+    case 'pane':
+      (function(){
+        var wasMetrics = (currentTab === 'metrics');
+        metricPane = el.dataset.pane || 'lab';
+        currentTab = 'metrics';
+        render();
+        if(!wasMetrics) window.scrollTo({ top: 0, behavior: 'smooth' });
+      })();
+      break;
+
+    case 'goto-weight':
+      metricPane = 'weight';
+      currentTab = 'metrics';
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      break;
+
+    case 'add-weight':
+      openWeightForm(null);
+      break;
+
+    case 'save-weight':
+      if(typeof sheetSubmit === 'function' && sheetSubmit() !== false) closeSheet();
+      break;
+
+    case 'edit-weight':
+      (function(){
+        var w = null;
+        for(var i = 0; i < state.weights.length; i++){
+          if(state.weights[i].id === id){ w = state.weights[i]; break; }
+        }
+        if(w) openWeightForm(w);
+      })();
+      break;
+
+    case 'del-weight':
+      (function(){
+        if(!confirm('确定删除这条体重记录吗？')) return;
+        state.weights = state.weights.filter(function(w){ return w.id !== id; });
+        saveState(); render(); toast('已删除');
+      })();
+      break;
+
+    case 'add-lab':
+      openLabForm(null);
+      break;
+
+    case 'save-lab':
+      if(typeof sheetSubmit === 'function' && sheetSubmit() !== false) closeSheet();
+      break;
+
+    case 'edit-lab':
+      (function(){
+        var l = null;
+        for(var i = 0; i < state.labs.length; i++){ if(state.labs[i].id === id){ l = state.labs[i]; break; } }
+        if(l) openLabForm(l);
+      })();
+      break;
+
+    case 'del-lab':
+      (function(){
+        if(!confirm('确定删除这条血值记录吗？')) return;
+        state.labs = state.labs.filter(function(l){ return l.id !== id; });
+        saveState(); render(); toast('已删除');
+      })();
+      break;
+
+    case 'add-exam':
+      openExamForm(null, null);
+      break;
+
+    case 'add-exam-type':
+      openExamForm(null, el.dataset.type);
+      break;
+
+    case 'save-exam':
+      if(typeof sheetSubmit === 'function' && sheetSubmit() !== false) closeSheet();
+      break;
+
+    case 'edit-exam':
+      (function(){
+        var ex = null;
+        for(var i = 0; i < state.exams.length; i++){ if(state.exams[i].id === id){ ex = state.exams[i]; break; } }
+        closeSheet();
+        if(ex) setTimeout(function(){ openExamForm(ex, null); }, 130);
+      })();
+      break;
+
+    case 'view-exam':
+      openExamDetail(id);
+      break;
+
+    case 'del-exam':
+      (function(){
+        if(!confirm('确定删除这条产检记录吗？')) return;
+        state.exams = state.exams.filter(function(x){ return x.id !== id; });
+        saveState(); closeSheet(); render(); toast('已删除');
+      })();
+      break;
+
+    case 'pick-shot':
+      $('#shotInput').click();
+      break;
+
+    case 'take-shot':
+      $('#camInput').click();
+      break;
+
+    case 'del-shot':
+      (function(){
+        var i = parseInt(el.dataset.idx, 10);
+        if(!isNaN(i)) tempImages.splice(i, 1);
+        renderShotList();
+      })();
+      break;
+
+    case 'open-shot':
+      (function(){
+        var ex = findExam(el.dataset.exam);
+        if(ex && ex.images && ex.images.length){
+          openLightbox(ex.images, parseInt(el.dataset.idx, 10) || 0);
+        }
+      })();
+      break;
+
+    case 'close-lightbox':
+      closeLightbox();
+      break;
+
+    case 'lb-prev':
+      if(lbIdx > 0){ lbIdx--; showLightbox(); }
+      break;
+
+    case 'lb-next':
+      if(lbIdx < lbList.length - 1){ lbIdx++; showLightbox(); }
+      break;
+
+    case 'add-item':
+      (function(){
+        var box = $('#itemRows');
+        if(!box) return;
+        var tmp = document.createElement('div');
+        tmp.innerHTML = itemRowHtml({ n:'', v:'', u:'' });
+        box.appendChild(tmp.firstChild);
+      })();
+      break;
+
+    case 'del-item':
+      (function(){
+        var row = el.closest('.item-row');
+        if(row) row.remove();
+      })();
+      break;
+
+    case 'export-json': exportJson(); break;
+    case 'export-csv':  exportCsv();  break;
+
+    case 'import-json':
+      $('#fileInput').click();
+      break;
+
+    case 'clear-all':
+      if(!confirm('会删除所有血值和产检记录，且无法恢复。建议先导出备份，确定继续吗？')) return;
+      state.labs = [];
+      state.weights = [];
+      state.exams = [];
+      saveState();
+      render();
+      toast('数据已清空');
+      break;
+
+    case 'load-demo':
+      loadDemo();
+      break;
+  }
+});
+
+$('#fileInput').addEventListener('change', function(e){
+  var f = e.target.files && e.target.files[0];
+  if(f) importJson(f);
+  e.target.value = '';
+});
+
+/* 选图 / 拍照 */
+$('#shotInput').addEventListener('change', function(e){
+  handleShotFiles(e.target.files);
+  e.target.value = '';
+});
+$('#camInput').addEventListener('change', function(e){
+  handleShotFiles(e.target.files);
+  e.target.value = '';
+});
+
+/* 点空白处关闭大图 */
+$('#lightbox').addEventListener('click', function(e){
+  if(e.target === this) closeLightbox();
+});
+
+/* 键盘：Esc 关闭弹层 / 左右切换大图 */
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    if($('#lightbox').classList.contains('on')) closeLightbox();
+    else closeSheet();
+  }else if($('#lightbox').classList.contains('on')){
+    if(e.key === 'ArrowLeft' && lbIdx > 0){ lbIdx--; showLightbox(); }
+    if(e.key === 'ArrowRight' && lbIdx < lbList.length - 1){ lbIdx++; showLightbox(); }
+  }
+});
+
+/* ==================================================================
+   15. 启动
+   ================================================================== */
+render();
+
+/* 图表交互在渲染后延迟绑定（此时 canvas 已插入 DOM） */
+var _origRender = render;
+render = function(){
+  _origRender();
+  if(currentTab === 'metrics'){
+    setTimeout(function(){
+      if(metricPane === 'weight') bindWeightChartEvents();
+      else bindChartEvents();
+    }, 60);
+  }
+};
+
+})();
+</script>
+</body>
+</html>
